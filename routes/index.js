@@ -22,15 +22,15 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'Custom Activity',
+    title: 'GC FTP',
     dropdownOptions: [
       {
-        name: 'Journey Entry',
-        value: 'journeyEntry',
+        name: 'Edipost',
+        value: 'Edipost',
       },
       {
-        name: 'Journey Exit',
-        value: 'journeyExit',
+        name: 'Internal',
+        value: 'Internal',
       },
     ],
   });
