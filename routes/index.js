@@ -22,7 +22,7 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'GC FTP',
+    title: 'GC FTP Connect',
     dropdownOptions: [
       {
         name: 'Edipost',
