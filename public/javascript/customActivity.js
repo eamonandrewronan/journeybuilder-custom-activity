@@ -62,6 +62,11 @@ function initialize(data) {
         payload['arguments'].execute.inArguments.length > 0
     );
 
+    logger.info(payload);
+
+    console.log('initialize');
+    console.log(payload);
+
     const inArguments = hasInArguments
         ? payload['arguments'].execute.inArguments
         : {};
