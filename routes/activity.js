@@ -18,6 +18,8 @@ exports.execute = async (req, res) => {
   try {
     const id = Uuidv1();
 
+    logger.info(id);
+
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
@@ -33,6 +35,8 @@ exports.execute = async (req, res) => {
   } catch (error) {
     logger.error(error);
   }
+
+  logger.info(id);
 
   res.status(200).send({
     status: 'ok',
