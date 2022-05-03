@@ -60,7 +60,8 @@ function initialize(data) {
         payload['arguments'].execute.inArguments.length > 0
     );
 
-    console.log('initialize - ' + payload);
+    console.log('initialize - ');
+    console.log(payload);
     
     const inArguments = hasInArguments
         ? payload['arguments'].execute.inArguments
@@ -137,7 +138,8 @@ function save() {
             })
         });
 
-        console.log('payload - ' + payload);
+        console.log('payload - ');
+        console.log(payload);
 
         connection.trigger('updateActivity', payload);
     }
