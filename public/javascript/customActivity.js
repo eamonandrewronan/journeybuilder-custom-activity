@@ -50,6 +50,9 @@ function onRender() {
  */
 function initialize(data) {
     if (data) {
+
+        logger.info(data);
+
         payload = data;
     }
     const hasInArguments = Boolean(
