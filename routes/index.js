@@ -13,8 +13,6 @@ exports.config = (req, res) => {
   const configTemplate = fs.readFileSync(file, 'utf-8');
   const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
 
-  logger.info(config);
-
   res.json(config);
 };
 
