@@ -51,8 +51,6 @@ function onRender() {
 function initialize(data) {
     if (data) {
 
-        logger.info(data);
-
         payload = data;
     }
     const hasInArguments = Boolean(
@@ -61,8 +59,6 @@ function initialize(data) {
         payload['arguments'].execute.inArguments &&
         payload['arguments'].execute.inArguments.length > 0
     );
-
-    logger.info(payload);
 
     console.log('initialize');
     console.log(payload);
