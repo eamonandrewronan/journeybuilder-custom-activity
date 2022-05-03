@@ -22,11 +22,15 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'GC FTP Connect',
+    title: 'LC FTP Connect',
     dropdownOptions: [
       {
         name: 'Edipost',
         value: 'Edipost',
+      },
+      {
+        name: 'SFTP',
+        value: 'SFTP',
       },
       {
         name: 'Internal',
