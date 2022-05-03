@@ -46,6 +46,9 @@ exports.execute = async (req, res) => {
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
+
+  logger.info('save');
+
   res.status(200).send({
     status: 'ok',
   });
@@ -57,6 +60,9 @@ exports.save = async (req, res) => {
  * @param res
  */
 exports.publish = (req, res) => {
+
+  logger.info('publish');
+
   res.status(200).send({
     status: 'ok',
   });
@@ -69,6 +75,9 @@ exports.publish = (req, res) => {
  * @param res
  */
 exports.validate = (req, res) => {
+
+  logger.info('validate');
+
   res.status(200).send({
     status: 'ok',
   });
