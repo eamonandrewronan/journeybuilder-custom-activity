@@ -34,7 +34,6 @@ exports.execute = async (req, res) => {
     logger.error(error);
   }
 
-  logger.info(id);
 
   res.status(200).send({
     status: 'ok',
