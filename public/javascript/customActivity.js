@@ -110,9 +110,14 @@ function save() {
 
         payload['arguments'].execute.inArguments = [
             {
-                "contactKey": "{{Contact.Key}}"
+                "contactKey": "{{Contact.Key}}",
+                "contactEmail": "{{Contact.Attribute.LC_Entry_DE.Email}}"
             }
         ];
+
+        logger.info('payload');
+        logger.info(payload);
+
 
         $('.js-activity-setting').each(function () {
             const $el = $(this);
