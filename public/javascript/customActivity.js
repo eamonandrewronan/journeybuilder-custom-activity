@@ -108,6 +108,8 @@ function onGetEndpoints(endpoints) {
 function save() {
 
     console.log('ca.save');
+    console.log('ca.payload - ');
+    console.log(payload);
 
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
