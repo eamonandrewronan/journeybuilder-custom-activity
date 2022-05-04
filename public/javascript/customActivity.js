@@ -44,6 +44,7 @@ function onRender() {
     $("#DropdownCommunications").hide();
     $("#Communications").hide();
     $("#CommunicationsDiv").hide();    
+    $("#MethodDiv").hide();    
 
     $("#DropdownCommunications").change(function () {
         var comms = getComms();
