@@ -30,12 +30,16 @@ exports.ui = (req, res) => {
         value: 'Edipost',
       },
       {
-        name: 'SFTP',
-        value: 'SFTP',
+        name: 'ONG Conseil',
+        value: 'ONG Conseil',
       },
       {
-        name: 'Internal',
-        value: 'Internal',
+        name: 'Call to Action',
+        value: 'Call to Action',
+      },
+      {
+        name: 'Voxens',
+        value: 'Voxens',
       },
     ],
   });

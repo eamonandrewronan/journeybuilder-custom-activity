@@ -95,7 +95,7 @@ function initialize(data) {
 
         console.log(buttonSettings.enabled);
 
-        connection.trigger('updateButton', buttonSettings);
+ //       connection.trigger('updateButton', buttonSettings);
     });
 }
 
