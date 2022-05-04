@@ -41,10 +41,20 @@ function onRender() {
 
     console.log($("#DropdownCommunications"));
 
-    $("#DropdownCommunications").hide();
-    $("#Communications").hide();
-    $("#CommunicationsDiv").hide();    
-    $("#MethodDiv").hide();    
+    var vendor = getVendor();
+
+    if (vendor == 'Select_Vendor') {
+        $("#DropdownCommunications").hide();
+        $("#Communications").hide();
+        $("#CommunicationsDiv").hide();    
+        $("#MethodDiv").hide();    
+    }
+
+    var comms = getComms();
+    
+    if (comms == 'Select Communication') {
+        $("#MethodDiv").hide();    
+    }
 
     $("#DropdownCommunications").change(function () {
         var comms = getComms();
