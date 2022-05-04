@@ -210,6 +210,20 @@ function initialize(data) {
         });
     });
 
+    var vendor = getVendor();
+
+    if (vendor != 'Select_Vendor') {
+        $("#DropdownCommunications").show();
+        $("#Communications").show();
+        $("#CommunicationsDiv").show();    
+    }
+
+    var comms = getComms();
+    
+    if (comms != 'Select Communication') {
+        $("#MethodDiv").show();    
+    }
+
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
 
