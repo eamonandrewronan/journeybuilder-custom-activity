@@ -16,15 +16,6 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-function onSelectOptions(){
-  console.log("hi");
-
-  var option = $('name="dropdownOptions"').value;
-
-  console.log(option);
-
-}
-
 /**
  * Render UI
  * @param req

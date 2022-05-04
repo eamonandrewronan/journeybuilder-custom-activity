@@ -19,7 +19,7 @@ block content
           label.slds-form-element__label(for="DropdownOptions") Type
           .slds-form-element__control
             .slds-select_container
-              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions' onchange = 'onSelectOptions()')
+              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions')
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
         .slds-form-element
