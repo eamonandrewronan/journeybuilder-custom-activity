@@ -41,10 +41,25 @@ function onRender() {
 
     console.log($("#DropdownCommunications"));
 
-    $("#DropdownCommunications").hide();
-    $("#Communications").hide();
-    $("#CommunicationsDiv").hide();    
+ //   $("#DropdownCommunications").hide();
+ //   $("#Communications").hide();
+ //   $("#CommunicationsDiv").hide();    
 
+    $("#DropdownCommunications").change(function () {
+        var comms = getComms();
+
+        console.log('comms');
+        console.log(comms);
+        
+        if (comms != 'Select Communication') {
+            $("#MethodDiv").show();    
+        }
+        else {
+            $("#MethodDiv").hide();    
+        }
+
+
+    });
     $("#DropdownOptions").change(function () {
         var vendor = getVendor();
 
@@ -124,6 +139,7 @@ function onRender() {
             $("#DropdownCommunications").hide();
             $("#Communications").hide();    
             $("#CommunicationsDiv").hide();    
+            $("#MethodDiv").hide();    
         }
 
 
@@ -175,7 +191,7 @@ function initialize(data) {
             console.log(key);
             console.log(value);
 
-            if($el.attr('type') === 'checkbox') {
+            if($el.attr('type') === 'radio') {
                 $el.prop('checked', value === 'true');
             } else {
                 $el.val(value);
