@@ -243,7 +243,14 @@ function save() {
             console.log(JSON.stringify(setting));
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
+
+                console.log($el.attr('type'));
+
                 if($el.attr('type') === 'checkbox') {
+
+                    console.log($el.is(":checked"));
+                    console.log(JSON.stringify(value));
+
                     if($el.is(":checked")) {
                         value[setting.id] = setting.value;
                     } else {
