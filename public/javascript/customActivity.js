@@ -115,10 +115,11 @@ function onRender() {
     connection.trigger('requestEndpoints');
 
     console.log('OnRender');
-    // Disable the next button if a value isn't selected
+
     $("#dropdownOptions").change(function () {
         var vendor = getVendor();
 
+        console.log('vendor');
         console.log(vendor);
 
         $("#dropdownCommunications").hide();
