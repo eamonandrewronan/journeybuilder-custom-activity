@@ -116,9 +116,11 @@ function onRender() {
 
     console.log('OnRender');
 
-    $("#dropdownCommunications").hide();
+    console.log($('#dropdownCommunications'));
 
-    $("#dropdownOptions").change(function () {
+    $('#dropdownCommunications').hide();
+
+    $('#dropdownOptions').change(function () {
         var vendor = getVendor();
 
         console.log('vendor');
