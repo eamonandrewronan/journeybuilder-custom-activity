@@ -221,7 +221,7 @@ function save() {
 
     console.log('ca.save');
     console.log('ca.payload - ');
-    console.log(JSON.stringify(payload));
+    console.log(JSON.stringify(payload['arguments'].execute.inArguments));
 
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
@@ -256,7 +256,7 @@ function save() {
         });
 
         console.log('ca.payload - ');
-        console.log(JSON.stringify(payload));
+        console.log(JSON.stringify(payload['arguments'].execute.inArguments));
 
         connection.trigger('updateActivity', payload);
     }
