@@ -15,13 +15,24 @@ const connection = new Postmonger.Session();
 let authTokens = {};
 let payload = {};
 let $form;
+var lastStepEnabled = false;
+  var steps = [
+    // initialize to the same value as what's set in config.json for consistency
+    { label: "Step 1", key: "step1" },
+    { label: "Step 2", key: "step2", active: false },
+    { label: "Step 3", key: "step3", active: false },
+    { label: "Step 4", key: "step4", active: false },
+  ];
 
+  var currentStep = steps[0].key;
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
 connection.on('requestedTokens', onGetTokens);
 connection.on('requestedEndpoints', onGetEndpoints);
-connection.on('clickedNext', save);
+connection.on('clickedNext', onClickedNext);
+connection.on("clickedBack", onClickedBack);
+connection.on("gotoStep", onGotoStep);
 
 const buttonSettings = {
     button: 'next',
@@ -109,6 +120,17 @@ function onClickedNext() {
     }
   }
 
+
+  function onClickedNext() {
+    if (
+      (currentStep.key === "step3" && steps[3].active === false) ||
+      currentStep.key === "step4"
+    ) {
+      save();
+    } else {
+      connection.trigger("nextStep");
+    }
+  } 
 function onRender() {
     connection.trigger('ready');
     connection.trigger('requestTokens');
@@ -116,11 +138,11 @@ function onRender() {
 
     console.log('OnRender');
 
-    console.log($('#dropdownCommunications'));
+    console.log($("#DropdownCommunications"));
 
-    $('#dropdownCommunications').hide();
+    $("#DropdownCommunications").hide();
 
-    $('#dropdownOptions').change(function () {
+    $("#DropdownOptions").change(function () {
         var vendor = getVendor();
 
         console.log('vendor');
@@ -211,13 +233,16 @@ function onGetEndpoints(endpoints) {
 }
 
 function getVendor() {
-    return $("#dropdownOptions").find("option:selected").attr("value").trim();
+    return $("#DropdownOptions").find("option:selected").attr("value").trim();
 }
 
 /**
  * Save settings
  */
 function save() {
+
+    var name = $("#DropdownOptions").find("option:selected").html();
+    var value = getMessage();
 
     console.log('ca.save');
     console.log('ca.payload - ');
