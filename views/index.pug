@@ -23,16 +23,18 @@ block content
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
         .slds-form-element#CommunicationsDiv
-          label#Communications.Label.slds-form-element__label(for="DropdownCommunications") Communcation
+          label#Communications.Label.slds-form-element__label(for="DropdownCommunications") Communication
           .slds-form-element__control
             .slds-select_container
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' )
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
         .slds-form-element#MethodDiv
-          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Communcation
+          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
           .slds-form-element__control
             .slds-select_container
-              input#SwitchMethod.slider.round(name='SwitchMethod' type='checkbox' checked)
-
+              API
+              input#SwitchMethod(name='SwitchMethod' type='checkbox' checked)
+              span(class='slider round')
+              FTP
     footer.slds-card__footer
