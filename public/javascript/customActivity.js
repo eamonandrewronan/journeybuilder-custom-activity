@@ -35,10 +35,15 @@ function onRender() {
     connection.trigger('requestTokens');
     connection.trigger('requestEndpoints');
 
+    console.log('OnRender');
+
     // validation
     validateForm(function($form) {
         $form.on('change click keyup input paste', 'input, textarea', function () {
             buttonSettings.enabled = $form.valid();
+
+            console.log(buttonSettings.enabled);
+
             connection.trigger('updateButton', buttonSettings);
         });
     });
@@ -68,8 +73,15 @@ function initialize(data) {
         : {};
 
     $.each(inArguments, function (index, inArgument) {
+
+        console.log(inArgument);
+
         $.each(inArgument, function (key, value) {
             const $el = $('#' + key);
+
+            console.log(key);
+            console.log(value);
+
             if($el.attr('type') === 'checkbox') {
                 $el.prop('checked', value === 'true');
             } else {
@@ -80,6 +92,9 @@ function initialize(data) {
 
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
+
+        console.log(buttonSettings.enabled);
+
         connection.trigger('updateButton', buttonSettings);
     });
 }
