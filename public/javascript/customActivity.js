@@ -155,7 +155,6 @@ function onRender() {
 
             var data = [
                 
-                { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
@@ -167,7 +166,6 @@ function onRender() {
         if (vendor == 'ONG Conseil') {
 
             var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
@@ -179,7 +177,6 @@ function onRender() {
         if (vendor == 'Call to Action') {
 
             var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
@@ -191,7 +188,6 @@ function onRender() {
         if (vendor == 'Voxens') {
 
             var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
@@ -200,7 +196,7 @@ function onRender() {
              }
         }
 
-        if (vendor != 'Select Vendor') {
+        if (vendor != 'Select_Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
         }
