@@ -221,7 +221,7 @@ function save() {
 
     console.log('ca.save');
     console.log('ca.payload - ');
-    console.log(payload);
+    console.log(JSON.stringify(payload));
 
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
@@ -240,7 +240,7 @@ function save() {
                 value: $(this).val()
             };
 
-            console.log(setting);
+            console.log(JSON.stringify(setting));
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
@@ -256,7 +256,7 @@ function save() {
         });
 
         console.log('ca.payload - ');
-        console.log(payload);
+        console.log(JSON.stringify(payload));
 
         connection.trigger('updateActivity', payload);
     }
