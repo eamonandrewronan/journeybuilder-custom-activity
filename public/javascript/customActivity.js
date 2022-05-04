@@ -141,10 +141,12 @@ function onRender() {
     console.log($("#DropdownCommunications"));
 
     $("#DropdownCommunications").hide();
-    $("#CommunicationsLabel").hide();
+    $("#Communications").hide();
 
     $("#DropdownOptions").change(function () {
         var vendor = getVendor();
+
+        $("#DropdownCommunications").empty();
 
         console.log('vendor');
         console.log(vendor);
@@ -152,6 +154,44 @@ function onRender() {
         if (vendor == 'Edipost') {
 
             var data = [
+                
+                { "name": "Select Communication", "value": "Select Communication" },
+                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Renewal", "value": "Renewal" }
+             ];
+             for (var index = 0; index <= data.length; index++) {
+                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+             }
+        }
+
+        if (vendor == 'ONG Conseil') {
+
+            var data = [
+                { "name": "Select Communication", "value": "Select Communication" },
+                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Renewal", "value": "Renewal" }
+             ];
+             for (var index = 0; index <= data.length; index++) {
+                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+             }
+        }
+
+        if (vendor == 'Call to Action') {
+
+            var data = [
+                { "name": "Select Communication", "value": "Select Communication" },
+                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Renewal", "value": "Renewal" }
+             ];
+             for (var index = 0; index <= data.length; index++) {
+                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+             }
+        }
+
+        if (vendor == 'Voxens') {
+
+            var data = [
+                { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
@@ -162,7 +202,7 @@ function onRender() {
 
         if (vendor != 'Select Vendor') {
             $("#DropdownCommunications").show();
-            $("#CommunicationsLabel").show();    
+            $("#Communications").show();    
         }
 
 
