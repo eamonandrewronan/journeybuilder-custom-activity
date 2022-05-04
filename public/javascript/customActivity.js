@@ -246,7 +246,7 @@ function save() {
 
                 console.log($el.attr('type'));
 
-                if($el.attr('type') === 'checkbox') {
+                if($el.attr('type') === 'radio') {
 
                     console.log($el.is(":checked"));
                     console.log(JSON.stringify(value));
