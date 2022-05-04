@@ -186,7 +186,7 @@ function initialize(data) {
     );
 
     console.log('ca.initialize - ');
-    console.log(payload);
+    console.log(JSON.stringify(payload));
     
     const inArguments = hasInArguments
         ? payload['arguments'].execute.inArguments
@@ -194,13 +194,14 @@ function initialize(data) {
 
     $.each(inArguments, function (index, inArgument) {
 
-        console.log(inArgument);
+        console.log(JSON.stringify(inArgument));
 
         $.each(inArgument, function (key, value) {
             const $el = $('#' + key);
 
             console.log(key);
             console.log(value);
+            console.log($el);
 
             if($el.attr('type') === 'radio') {
                 $el.prop('checked', value === 'true');
