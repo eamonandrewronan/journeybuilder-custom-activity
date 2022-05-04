@@ -27,7 +27,7 @@ block content
           .slds-form-element__control
             .slds-select_container
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications')
-                each dropdownCommunications in dropdownCommunications
-                  option(value=dropdownCommunications.value)= dropdownCommunications.name
+                each dropdownCommunication in dropdownCommunications
+                  option(value=dropdownCommunication.value)= dropdownCommunication.name
 
     footer.slds-card__footer

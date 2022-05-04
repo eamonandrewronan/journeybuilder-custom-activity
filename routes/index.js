@@ -26,6 +26,10 @@ exports.ui = (req, res) => {
     title: 'LC FTP Connect',
     dropdownOptions: [
       {
+        name: 'Select Vendor',
+        value: 'Select_Vendor',
+      },
+      {
         name: 'Edipost',
         value: 'Edipost',
       },
@@ -43,6 +47,10 @@ exports.ui = (req, res) => {
       },
     ],
     dropdownCommunications: [
+      {
+        name: 'Select Communication',
+        value: 'Select_Communication',
+      },
     ],
   });
 };
