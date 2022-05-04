@@ -116,12 +116,12 @@ function onRender() {
 
     console.log('OnRender');
     // Disable the next button if a value isn't selected
-    $("#dropdownOptions").change(function () {
+    $('select[name="dropdownOptions"]').change(function () {
         var vendor = getVendor();
 
         console.log(vendor);
 
-        $("#dropdownCommunications").hide();
+        $('select[name="dropdownCommunications"]').hide();
 
     });
   
