@@ -107,7 +107,7 @@ function onGetEndpoints(endpoints) {
  */
 function save() {
 
-    console.log('save');
+    console.log('ca.save');
 
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
@@ -124,6 +124,8 @@ function save() {
                 id: $(this).attr('id'),
                 value: $(this).val()
             };
+
+            console.log(setting);
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
                 if($el.attr('type') === 'checkbox') {
