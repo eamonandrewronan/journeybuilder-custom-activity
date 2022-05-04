@@ -20,13 +20,7 @@
       "timeout": 10000
     }
   },
-  "wizardSteps": [
-    { "label": "Select Vendor", "key": "step1" },
-    { "label": "Select Communication", "key": "step2", "active": false },
-    { "label": "Select Method", "key": "step3", "active": false },
-    { "label": "Finish", "key": "step4", "active": false }
-  ],
-  "configurationArguments": {
+   "configurationArguments": {
     "save": {
       "url": "https://$DOMAIN/journey/save",
       "verb": "POST",

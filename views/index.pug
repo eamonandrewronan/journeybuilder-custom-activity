@@ -19,14 +19,14 @@ block content
           label.slds-form-element__label(for="DropdownOptions") Type
           .slds-form-element__control
             .slds-select_container
-              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions')
+              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions' id='dropdownOptions')
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
         .slds-form-element
           label.slds-form-element__label(for="DropdownCommunications") Type
           .slds-form-element__control
             .slds-select_container
-              select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications')
+              select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' id='dropdownCommunications')
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
 

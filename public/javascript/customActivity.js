@@ -15,23 +15,12 @@ const connection = new Postmonger.Session();
 let authTokens = {};
 let payload = {};
 let $form;
-var lastStepEnabled = false;
-var steps = [
-  // initialize to the same value as what's set in config.json for consistency
-  { label: "Select Vendor", key: "step1" },
-  { label: "Select Communication", key: "step2", active: false },
-  { label: "Select Method", key: "step3", active: false },
-  { label: "Finish", key: "step4", active: false },
-];
-
-var currentStep = steps[0].key;
 
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
 connection.on('requestedTokens', onGetTokens);
 connection.on('requestedEndpoints', onGetEndpoints);
-connection.on("gotoStep", onGotoStep);
 connection.on('clickedNext', save);
 
 const buttonSettings = {
@@ -126,17 +115,27 @@ function onRender() {
     connection.trigger('requestEndpoints');
 
     console.log('OnRender');
+    // Disable the next button if a value isn't selected
+    $("#dropdownOptions").change(function () {
+        var vendor = getVendor();
+
+        console.log(vendor);
+
+        $("#dropdownCommunications").hide();
+
+    });
+  
 
     // validation
-    validateForm(function($form) {
-        $form.on('change click keyup input paste', 'input, textarea', function () {
-            buttonSettings.enabled = $form.valid();
+//    validateForm(function($form) {
+//        $form.on('change click keyup input paste', 'input, textarea', function () {
+//            buttonSettings.enabled = $form.valid();
 
-            console.log(buttonSettings.enabled);
+//            console.log(buttonSettings.enabled);
 
-            connection.trigger('updateButton', buttonSettings);
-        });
-    });
+  //          connection.trigger('updateButton', buttonSettings);
+    //    });
+  //  });
 }
 
 /**
@@ -205,6 +204,10 @@ function onGetTokens(tokens) {
  */
 function onGetEndpoints(endpoints) {
     console.log(endpoints);
+}
+
+function getVendor() {
+    return $('name="dropdownOptions"').find("option:selected").attr("value").trim();
 }
 
 /**
