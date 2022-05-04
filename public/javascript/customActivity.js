@@ -95,7 +95,7 @@ function initialize(data) {
 
         console.log(buttonSettings.enabled);
 
- //       connection.trigger('updateButton', buttonSettings);
+        connection.trigger('updateButton', buttonSettings);
     });
 }
 
@@ -131,7 +131,8 @@ function save() {
 
         payload['arguments'].execute.inArguments = [
             {
-                "contactKey": "{{Contact.Key}}"
+                "contactKey": "{{Contact.Key}}",
+                "contactEmail": "{Contact.Attribute.LC_Entry_DE.Email}"
             }
         ];
 
