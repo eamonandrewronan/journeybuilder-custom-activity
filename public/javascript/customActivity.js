@@ -203,27 +203,31 @@ function initialize(data) {
             console.log(value);
             console.log($el);
 
+
             if($el.attr('type') === 'radio') {
                 $el.prop('checked', value === 'true');
             } else {
                 $el.val(value);
             }
+
+            if (key == 'DropdownOptions') {
+                if (value != 'Select_Vendor') {
+                    $("#DropdownCommunications").show();
+                    $("#Communications").show();
+                    $("#CommunicationsDiv").show(); 
+                    $("#DropdownOptions").change();   
+                }
+            
+            }
+            if (key == 'DropdownCommunications') {
+                if (value != 'Select Communication') {
+                    $("#MethodDiv").show();    
+                }
+            
+            }
+
         });
     });
-
-    var vendor = getVendor();
-
-    if (vendor != 'Select_Vendor') {
-        $("#DropdownCommunications").show();
-        $("#Communications").show();
-        $("#CommunicationsDiv").show();    
-    }
-
-    var comms = getComms();
-    
-    if (comms != 'Select Communication') {
-        $("#MethodDiv").show();    
-    }
 
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
