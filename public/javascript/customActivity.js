@@ -154,11 +154,15 @@ function onRender() {
         if (vendor == 'Edipost') {
 
             var data = [
-                
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
+
+             console.log(data);
+
              for (var index = 0; index <= data.length; index++) {
+                console.log(data[index]);
+
                 $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
              }
         }
@@ -169,7 +173,10 @@ function onRender() {
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
+             console.log(data);
+
              for (var index = 0; index <= data.length; index++) {
+                console.log(data[index]);
                 $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
              }
         }
@@ -180,7 +187,10 @@ function onRender() {
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
+             console.log(data);
+
              for (var index = 0; index <= data.length; index++) {
+                console.log(data[index]);
                 $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
              }
         }
@@ -191,7 +201,10 @@ function onRender() {
                 { "name": "Welcome", "value": "Welcome" },
                 { "name": "Renewal", "value": "Renewal" }
              ];
+             console.log(data);
+
              for (var index = 0; index <= data.length; index++) {
+                console.log(data[index]);
                 $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
              }
         }
