@@ -116,13 +116,14 @@ function onRender() {
 
     console.log('OnRender');
 
+    $("#dropdownCommunications").hide();
+
     $("#dropdownOptions").change(function () {
         var vendor = getVendor();
 
         console.log('vendor');
         console.log(vendor);
 
-        $("#dropdownCommunications").hide();
 
     });
   
