@@ -22,12 +22,17 @@ block content
               select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions' )
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
-        .slds-form-element
+        .slds-form-element#CommunicationsDiv
           label#Communications.Label.slds-form-element__label(for="DropdownCommunications") Communcation
           .slds-form-element__control
             .slds-select_container
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' )
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
+        .slds-form-element#MethodDiv
+          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Communcation
+          .slds-form-element__control
+            .slds-select_container
+              input#SwitchMethod.slider.round(name='SwitchMethod' type='checkbox' checked)
 
     footer.slds-card__footer

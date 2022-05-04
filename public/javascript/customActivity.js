@@ -43,6 +43,7 @@ function onRender() {
 
     $("#DropdownCommunications").hide();
     $("#Communications").hide();
+    $("#CommunicationsDiv").hide();    
 
     $("#DropdownOptions").change(function () {
         var vendor = getVendor();
@@ -117,10 +118,12 @@ function onRender() {
         if (vendor != 'Select_Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
+            $("#CommunicationsDiv").show();    
         }
         else {
             $("#DropdownCommunications").hide();
             $("#Communications").hide();    
+            $("#CommunicationsDiv").hide();    
         }
 
 
@@ -215,9 +218,6 @@ function getVendor() {
  * Save settings
  */
 function save() {
-
-    var name = $("#DropdownOptions").find("option:selected").html();
-    var value = getMessage();
 
     console.log('ca.save');
     console.log('ca.payload - ');
