@@ -141,12 +141,29 @@ function onRender() {
     console.log($("#DropdownCommunications"));
 
     $("#DropdownCommunications").hide();
+    $("#CommunicationsLabel").hide();
 
     $("#DropdownOptions").change(function () {
         var vendor = getVendor();
 
         console.log('vendor');
         console.log(vendor);
+        
+        if (vendor == 'Edipost') {
+
+            var data = [
+                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Renewal", "value": "Renewal" }
+             ];
+             for (var index = 0; index <= data.length; index++) {
+                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+             }
+        }
+
+        if (vendor != 'Select Vendor') {
+            $("#DropdownCommunications").show();
+            $("#CommunicationsLabel").show();    
+        }
 
 
     });
