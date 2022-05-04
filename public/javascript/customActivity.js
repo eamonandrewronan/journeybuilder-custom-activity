@@ -15,24 +15,13 @@ const connection = new Postmonger.Session();
 let authTokens = {};
 let payload = {};
 let $form;
-var lastStepEnabled = false;
-  var steps = [
-    // initialize to the same value as what's set in config.json for consistency
-    { label: "Step 1", key: "step1" },
-    { label: "Step 2", key: "step2", active: false },
-    { label: "Step 3", key: "step3", active: false },
-    { label: "Step 4", key: "step4", active: false },
-  ];
 
-  var currentStep = steps[0].key;
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
 connection.on('requestedTokens', onGetTokens);
 connection.on('requestedEndpoints', onGetEndpoints);
-connection.on('clickedNext', onClickedNext);
-connection.on("clickedBack", onClickedBack);
-connection.on("gotoStep", onGotoStep);
+connection.on('clickedNext', save);
 
 const buttonSettings = {
     button: 'next',
@@ -41,96 +30,8 @@ const buttonSettings = {
     enabled: false,
 };
 
-function onClickedNext() {
-    if (
-      (currentStep.key === "step3" && steps[3].active === false) ||
-      currentStep.key === "step4"
-    ) {
-      save();
-    } else {
-      connection.trigger("nextStep");
-    }
-  }
-
-  function onClickedBack() {
-    connection.trigger("prevStep");
-  }
-
-  function onGotoStep(step) {
-    showStep(step);
-    connection.trigger("ready");
-  }
-
-  function showStep(step, stepIndex) {
-    if (stepIndex && !step) {
-      step = steps[stepIndex - 1];
-    }
-
-    currentStep = step;
-
-    $(".step").hide();
-
-    switch (currentStep.key) {
-      case "step1":
-        $("#step1").show();
-        connection.trigger("updateButton", {
-          button: "next",
-          enabled: Boolean(getMessage()),
-        });
-        connection.trigger("updateButton", {
-          button: "back",
-          visible: false,
-        });
-        break;
-      case "step2":
-        $("#step2").show();
-        connection.trigger("updateButton", {
-          button: "back",
-          visible: true,
-        });
-        connection.trigger("updateButton", {
-          button: "next",
-          text: "next",
-          visible: true,
-        });
-        break;
-      case "step3":
-        $("#step3").show();
-        connection.trigger("updateButton", {
-          button: "back",
-          visible: true,
-        });
-        if (lastStepEnabled) {
-          connection.trigger("updateButton", {
-            button: "next",
-            text: "next",
-            visible: true,
-          });
-        } else {
-          connection.trigger("updateButton", {
-            button: "next",
-            text: "done",
-            visible: true,
-          });
-        }
-        break;
-      case "step4":
-        $("#step4").show();
-        break;
-    }
-  }
 
 
-  function onClickedNext() {
-    if (
-      (currentStep.key === "step3" && steps[3].active === false) ||
-      currentStep.key === "step4"
-    ) {
-      save();
-    } else {
-      connection.trigger("nextStep");
-    }
-  } 
 function onRender() {
     connection.trigger('ready');
     connection.trigger('requestTokens');
@@ -172,8 +73,8 @@ function onRender() {
 
             var data = [
                 { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
-                { "name": "Renewal", "value": "Renewal" }
+                { "name": "Membership Renewal", "value": "Membership Renewal" },
+                { "name": "Send Invoice", "value": "Send Invoice" }
              ];
              console.log(data);
 
@@ -187,8 +88,8 @@ function onRender() {
 
             var data = [
                 { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
-                { "name": "Renewal", "value": "Renewal" }
+                { "name": "Fundraising Pack", "value": "Funcraising Pack" },
+                { "name": "Sponsorship Request", "value": "Sponsorship Request" }
              ];
              console.log(data);
 
@@ -216,6 +117,10 @@ function onRender() {
         if (vendor != 'Select_Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
+        }
+        else {
+            $("#DropdownCommunications").hide();
+            $("#Communications").hide();    
         }
 
 
