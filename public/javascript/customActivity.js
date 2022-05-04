@@ -41,9 +41,9 @@ function onRender() {
 
     console.log($("#DropdownCommunications"));
 
- //   $("#DropdownCommunications").hide();
- //   $("#Communications").hide();
- //   $("#CommunicationsDiv").hide();    
+    $("#DropdownCommunications").hide();
+    $("#Communications").hide();
+    $("#CommunicationsDiv").hide();    
 
     $("#DropdownCommunications").change(function () {
         var comms = getComms();
@@ -228,6 +228,10 @@ function onGetEndpoints(endpoints) {
 
 function getVendor() {
     return $("#DropdownOptions").find("option:selected").attr("value").trim();
+}
+
+function getComms() {
+    return $("#DropdownCommunications").find("option:selected").attr("value").trim();
 }
 
 /**
