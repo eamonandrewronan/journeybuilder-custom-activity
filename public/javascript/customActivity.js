@@ -116,12 +116,12 @@ function onRender() {
 
     console.log('OnRender');
     // Disable the next button if a value isn't selected
-    $('select[name="dropdownOptions"]').change(function () {
+    $("#dropdownOptions").change(function () {
         var vendor = getVendor();
 
         console.log(vendor);
 
-        $('select[name="dropdownCommunications"]').hide();
+        $("#dropdownCommunications").hide();
 
     });
   
@@ -207,7 +207,7 @@ function onGetEndpoints(endpoints) {
 }
 
 function getVendor() {
-    return $('name="dropdownOptions"').find("option:selected").attr("value").trim();
+    return $("#dropdownOptions").find("option:selected").attr("value").trim();
 }
 
 /**
