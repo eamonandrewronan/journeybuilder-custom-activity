@@ -49,7 +49,7 @@ exports.ui = (req, res) => {
     dropdownCommunications: [
       {
         name: 'Select Communication',
-        value: 'Select_Communication',
+        value: 'Select Communication',
       },
     ],
   });
