@@ -16,7 +16,7 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-function onSorting(){
+function onSelectOptions(){
   console.log("hi");
 
   var option = $('name="dropdownOptions"').value;
