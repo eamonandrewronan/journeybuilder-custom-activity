@@ -22,5 +22,12 @@ block content
               select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions')
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
+        .slds-form-element
+          label.slds-form-element__label(for="DropdownCommunications") Type
+          .slds-form-element__control
+            .slds-select_container
+              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownCommunications')
+                each dropdownOption in dropdownOptions
+                  option(value=dropdownOption.value)= dropdownOption.name
 
     footer.slds-card__footer
