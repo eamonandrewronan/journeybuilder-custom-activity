@@ -206,10 +206,10 @@ function initialize(data) {
             if($el.attr('type') === 'radio') {
 
                 if (value == 'on') {
-                    $el.prop('checked', value === 'true');
+                    $el.prop('checked', true);
                 }
                 else {
-                    $el.prop('checked', value === 'false');
+                    $el.prop('checked', false);
                 }
             } else {
                 $el.val(value);
