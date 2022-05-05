@@ -70,22 +70,22 @@ function onRender() {
 
             switch (comms) {
                 case 'Welcome' :
-                    $("#PreviewImage").attr("src","images/icon1.png");
+                    $("#PreviewImage").attr("src","images/image1.png");
                     break;
                 case 'Renewal' :
-                    $("#PreviewImage").attr("src","images/icon2.png");
+                    $("#PreviewImage").attr("src","images/image2.png");
                     break;
                 case 'Membership Renewal' :
-                    $("#PreviewImage").attr("src","images/icon3.png");
+                    $("#PreviewImage").attr("src","images/image3.png");
                     break;
                 case 'Send Invoice' :
-                    $("#PreviewImage").attr("src","images/icon4.png");
+                    $("#PreviewImage").attr("src","images/image4.png");
                     break;
                 case 'Fundraising Pack' :
-                    $("#PreviewImage").attr("src","images/icon5.png");
+                    $("#PreviewImage").attr("src","images/image5.png");
                     break;
                 case 'Sponsorship Request' :
-                    $("#PreviewImage").attr("src","images/icon6.png");
+                    $("#PreviewImage").attr("src","images/image6.png");
                     break;
             }
 
