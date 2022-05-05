@@ -47,14 +47,14 @@ function onRender() {
         $("#DropdownCommunications").hide();
         $("#Communications").hide();
         $("#CommunicationsDiv").hide();    
-  //      $("#MethodDiv").hide();    
+        $("#MethodDiv").hide();    
         $("#PreviewDiv").hide();    
     }
 
     var comms = getComms();
     
     if (comms == 'Select Communication') {
- //       $("#MethodDiv").hide();    
+        $("#MethodDiv").hide();    
         $("#PreviewDiv").hide();    
     }
 
@@ -91,7 +91,7 @@ function onRender() {
 
         }
         else {
-      //      $("#MethodDiv").hide();    
+            $("#MethodDiv").hide();    
             $("#PreviewDiv").hide();    
         }
 
@@ -178,7 +178,7 @@ function onRender() {
             $("#DropdownCommunications").hide();
             $("#Communications").hide();    
             $("#CommunicationsDiv").hide();    
- //           $("#MethodDiv").hide();    
+            $("#MethodDiv").hide();    
             $("#PreviewDiv").hide();    
         }
 
