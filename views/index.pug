@@ -16,14 +16,14 @@ block content
     .slds-card__body.slds-card__body_inner
       form.js-settings-form
         .slds-form-element
-          label#OptionsLabel.slds-form-element__label(for="DropdownOptions") Vendor
+          label#OptionsLabel.slds-form-element__label(for="DropdownOptions")Vendor
           .slds-form-element__control
             .slds-select_container
               select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions' )
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
         .slds-form-element#CommunicationsDiv
-          label#Communications.Label.slds-form-element__label(for="DropdownCommunications") Communication
+          label#Communications.Label.slds-form-element__label(for="DropdownCommunications")Communication
           .slds-form-element__control
             .slds-select_container
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' )
@@ -34,9 +34,9 @@ block content
           .slds-form-element__control
 
             div
-              label#API.Label.slds-form-element__label.slds-radio__label.slds-p-around_large(for="APIMethod") API
+              label#API.Label.slds-form-element__label.slds-radio__label.slds-p-around_large(for="APIMethod")API
                 input#APIMethod.js-activity-setting.slds-p-horizontal_xx-large(type='radio', name='Method' checked)
-              label#FTP.Label.slds-form-element__label.slds-radio__label.slds-p-around_large(for="FTPMethod") FTP
+              label#FTP.Label.slds-form-element__label.slds-radio__label.slds-p-around_large(for="FTPMethod")FTP
                 input#FTPMethod.js-activity-setting.slds-p-horizontal_xx-large(type='radio', name='Method')
 
         .slds-form-element#PreviewDiv
