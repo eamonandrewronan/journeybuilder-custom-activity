@@ -48,12 +48,14 @@ function onRender() {
         $("#Communications").hide();
         $("#CommunicationsDiv").hide();    
         $("#MethodDiv").hide();    
+        $("#PreviewDiv").hide();    
     }
 
     var comms = getComms();
     
     if (comms == 'Select Communication') {
         $("#MethodDiv").hide();    
+        $("#PreviewDiv").hide();    
     }
 
     $("#DropdownCommunications").change(function () {
@@ -64,9 +66,11 @@ function onRender() {
         
         if (comms != 'Select Communication') {
             $("#MethodDiv").show();    
+            $("#PreviewDiv").show();    
         }
         else {
             $("#MethodDiv").hide();    
+            $("#PreviewDiv").hide();    
         }
 
 
@@ -151,6 +155,7 @@ function onRender() {
             $("#Communications").hide();    
             $("#CommunicationsDiv").hide();    
             $("#MethodDiv").hide();    
+            $("#PreviewDiv").hide();    
         }
 
 
@@ -227,6 +232,7 @@ function initialize(data) {
             if (key == 'DropdownCommunications') {
                 if (value != 'Select Communication') {
                     $("#MethodDiv").show();    
+                    $("#PreviewDiv").show();    
                 }
             
             }
