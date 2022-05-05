@@ -30,8 +30,9 @@ block content
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
         .slds-form-element#MethodDiv
-            input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
-            input#FTPMethod.js-activity-setting(type='radio', name='Method')
+          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
+          input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
+          input#FTPMethod.js-activity-setting(type='radio', name='Method')
 
         .slds-form-element#PreviewDiv
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
