@@ -31,6 +31,7 @@ block content
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
         .slds-form-element#MethodDiv
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
+            .slds-form-element__control
               label#API.Label.slds-radio__label(for="APIMethod") API
                   input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
               label#FTP.Label.slds-radio__label(for="FTPMethod") FTP
