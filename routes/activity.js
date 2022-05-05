@@ -59,6 +59,8 @@ exports.save = async (req, res) => {
 
   logger.info('save');
 
+  logger.info(JSON.stringify(req.body));
+
   res.status(200).send({
     status: 'ok',
   });
@@ -73,6 +75,8 @@ exports.publish = (req, res) => {
 
   logger.info('publish');
 
+  logger.info(JSON.stringify(req.body));
+
   res.status(200).send({
     status: 'ok',
   });
@@ -85,6 +89,8 @@ exports.publish = (req, res) => {
  * @param res
  */
 exports.validate = (req, res) => {
+
+  logger.info(JSON.stringify(req.body));
 
   logger.info('validate');
 

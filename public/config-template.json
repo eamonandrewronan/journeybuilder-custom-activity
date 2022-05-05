@@ -11,6 +11,19 @@
   },
   "arguments": {
     "execute": {
+      "inArguments": [
+        {
+          "contactIdentifier": "{{Contact.Key}}"
+        },
+        {
+          "emailAddress": "{{Contact.Attribute.Contact_DE_LC.Email}}"
+        }
+      ],
+      "outArguments": [
+        {
+          "foundSignupDate": ""
+        }
+      ],
       "url": "https://$DOMAIN/journey/execute",
       "verb": "POST",
       "body": "",
