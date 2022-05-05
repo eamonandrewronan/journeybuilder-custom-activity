@@ -32,10 +32,11 @@ block content
         .slds-form-element#MethodDiv
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
             .slds-form-element__control
-              label#API.Label.slds-radio__label(for="APIMethod") API
-                  input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
-              label#FTP.Label.slds-radio__label(for="FTPMethod") FTP
+              .slds-radio
+                input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
+                label#API.Label.slds-radio__label(for="APIMethod") API
                 input#FTPMethod.js-activity-setting(type='radio', name='Method')
+                label#FTP.Label.slds-radio__label(for="FTPMethod") FTP
 
         .slds-form-element#PreviewDiv
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
