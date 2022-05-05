@@ -170,7 +170,9 @@ function onRender() {
         if (vendor != 'Select_Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
-            $("#CommunicationsDiv").show();    
+            $("#CommunicationsDiv").show(); 
+            $("#DropdownCommunications").change();   
+   
         }
         else {
             $("#DropdownCommunications").hide();
