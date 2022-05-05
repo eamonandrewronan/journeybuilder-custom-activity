@@ -68,31 +68,25 @@ function onRender() {
             $("#MethodDiv").show();    
             $("#PreviewDiv").show();    
 
-            switch on comms {
-                when 'Welcome' {		// when block 1
+            switch (comms) {
+                case 'Welcome' :
                     $("#PreviewImage").src = 'images/icon1.png';
-                    // code block 1
-                }	
-                when 'Renewal' {		// when block 2
+                    break;
+                case 'Renewal' :
                     $("#PreviewImage").src = 'images/icon2.png';
-                    // code block 2
-                }
-                when 'Membership Renewal' {		// when block 3
+                    break;
+                case 'Membership Renewal' :
                     $("#PreviewImage").src = 'images/icon3.png';
-                    // code block 3
-                }
-                when 'Send Invoice' {		// when block 2
+                    break;
+                case 'Send Invoice' :
                     $("#PreviewImage").src = 'images/icon4.png';
-                    // code block 2
-                }
-                when 'Fundraising Pack' {		// when block 2
+                    break;
+                case 'Fundraising Pack' :
                     $("#PreviewImage").src = 'images/icon5.png';
-                    // code block 2
-                }
-                when 'Sponsorship Request' {		// when block 2
+                    break;
+                case 'Sponsorship Request' :
                     $("#PreviewImage").src = 'images/icon6.png';
-                    // code block 2
-                }
+                    break;
             }
 
         }
