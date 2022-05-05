@@ -16,24 +16,32 @@ exports.execute = async (req, res) => {
   logger.info('execute');
   logger.info(JSON.stringify(data));
 
-/*  try {
-    const id = Uuidv1();
+  try {
+
+    var method;
+
+    if (data.inArguments[0].APIMethod == 'on') {
+      method = 'API';
+    }
+    else {
+      method = 'FTP';
+    }
 
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
-          Id: id,
           SubscriberKey: data.inArguments[0].contactKey,
         },
         values: {
-          Event: data.inArguments[0].DropdownOptions,
-          Text: data.inArguments[0].Text,
+          Vendor: data.inArguments[0].DropdownOptions,
+          Communication: data.inArguments[0].DropdownCommunications,
+          Method: method,
         },
       },
     ]);
   } catch (error) {
     logger.error(error);
-  } */
+  } 
 
 
   res.status(200).send({
