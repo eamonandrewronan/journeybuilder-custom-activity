@@ -257,6 +257,8 @@ function initialize(data) {
                 if (value != 'Select Communication') {
                     $("#MethodDiv").show();    
                     $("#PreviewDiv").show();    
+                    $("#DropdownCommunications").change();   
+
                 }
             
             }
