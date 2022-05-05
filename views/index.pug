@@ -31,13 +31,18 @@ block content
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
         .slds-form-element#MethodDiv
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
-            .slds-form-element__control
-              span(class='slds-radio')
-                label#API.slds-radio__label(for="APIMethod") API
-                input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
-              span(class='slds-radio')
-                label#FTP.slds-radio__label(for="FTPMethod") FTP
-                input#FTPMethod.js-activity-setting(type='radio', name='Method')
+            input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
+            input#FTPMethod.js-activity-setting(type='radio', name='Method')
+
+//        .slds-form-element#MethodDiv
+//          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
+//            .slds-form-element__control
+//              span(class='slds-radio')
+//                label#API.slds-radio__label(for="APIMethod") API
+//                input#APIMethod.js-activity-setting(type='radio', name='Method' checked)
+//              span(class='slds-radio')
+//                label#FTP.slds-radio__label(for="FTPMethod") FTP
+//                input#FTPMethod.js-activity-setting(type='radio', name='Method')
 
         .slds-form-element#PreviewDiv
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
