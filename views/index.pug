@@ -35,7 +35,7 @@ block content
 
             div
               label#API.Label.slds-form-element__label.slds-radio__label.slds-p-around_medium(for="APIMethod") API
-                input#APIMethod.js-activity-setting.slds-p-around_medium(type='radio', name='Method')
+                input#APIMethod.js-activity-setting.slds-p-around_medium(type='radio', name='Method' checked)
               label#FTP.Label.slds-form-element__label.slds-radio__label.slds-p-around_medium(for="FTPMethod") FTP
                 input#FTPMethod.js-activity-setting.slds-p-around_medium(type='radio', name='Method')
 
@@ -44,6 +44,6 @@ block content
           .slds-form-element__control
 
             div
-              img(src='images/icon.png')
+              img#PreviewImage(src='images/icon.png')
 
     footer.slds-card__footer

@@ -67,6 +67,34 @@ function onRender() {
         if (comms != 'Select Communication') {
             $("#MethodDiv").show();    
             $("#PreviewDiv").show();    
+
+            switch on comms {
+                when 'Welcome' {		// when block 1
+                    $("#PreviewImage").src = 'images/icon1.png';
+                    // code block 1
+                }	
+                when 'Renewal' {		// when block 2
+                    $("#PreviewImage").src = 'images/icon2.png';
+                    // code block 2
+                }
+                when 'Membership Renewal' {		// when block 3
+                    $("#PreviewImage").src = 'images/icon3.png';
+                    // code block 3
+                }
+                when 'Send Invoice' {		// when block 2
+                    $("#PreviewImage").src = 'images/icon4.png';
+                    // code block 2
+                }
+                when 'Fundraising Pack' {		// when block 2
+                    $("#PreviewImage").src = 'images/icon5.png';
+                    // code block 2
+                }
+                when 'Sponsorship Request' {		// when block 2
+                    $("#PreviewImage").src = 'images/icon6.png';
+                    // code block 2
+                }
+            }
+
         }
         else {
             $("#MethodDiv").hide();    
@@ -119,7 +147,7 @@ function onRender() {
 
             var data = [
                 { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Fundraising Pack", "value": "Funcraising Pack" },
+                { "name": "Fundraising Pack", "value": "Fundraising Pack" },
                 { "name": "Sponsorship Request", "value": "Sponsorship Request" }
              ];
              console.log(data);
@@ -135,7 +163,7 @@ function onRender() {
             var data = [
                 { "name": "Select Communication", "value": "Select Communication" },
                 { "name": "Welcome", "value": "Welcome" },
-                { "name": "Renewal", "value": "Renewal" }
+                { "name": "Send Invoice", "value": "Send Invoice" }
              ];
              console.log(data);
 
