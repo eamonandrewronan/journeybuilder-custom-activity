@@ -31,19 +31,16 @@ block content
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
         .slds-form-element#MethodDiv
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
-          .slds-form-element__control
-
-            div
+            .slds-form-element__control
               label#API.Label.slds-form-element__label.slds-radio__label.slds-p-around_xx-large(for="APIMethod") API
-                input#APIMethod.js-activity-setting.slds-p-around_xx-large(type='radio', name='Method' checked)
+                  input#APIMethod.js-activity-setting.slds-p-around_xx-large(type='radio', name='Method' checked)
+            .slds-form-element__control
               label#FTP.Label.slds-form-element__label.slds-radio__label.slds-p-around_xx-large(for="FTPMethod") FTP
                 input#FTPMethod.js-activity-setting.slds-p-around_xx-large(type='radio', name='Method')
 
         .slds-form-element#PreviewDiv
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
           .slds-form-element__control
-
-            div
               img#PreviewImage.slds-align_absolute-center(src='images/icon.png')
 
     footer.slds-card__footer
