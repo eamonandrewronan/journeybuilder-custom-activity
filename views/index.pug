@@ -15,31 +15,31 @@ block content
               span= title
     .slds-card__body.slds-card__body_inner
       form.js-settings-form
-        .slds-form-element
+        .slds-form-element.slds-m-top_large
           label#OptionsLabel.slds-form-element__label(for="DropdownOptions") Vendor
           .slds-form-element__control
             .slds-select_container
               select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions' )
                 each dropdownOption in dropdownOptions
                   option(value=dropdownOption.value)= dropdownOption.name
-        .slds-form-element#CommunicationsDiv
+        .slds-form-element#CommunicationsDiv.slds-m-top_large
           label#Communications.Label.slds-form-element__label(for="DropdownCommunications") Communication
           .slds-form-element__control
             .slds-select_container
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' )
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
-        .slds-form-element#MethodDiv
+        .slds-form-element#MethodDiv.slds-m-top_large.slds-box
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
           .slds-form-element__control
             Div
               label#API.slds-radio__label(for="APIMethod") API
-              input#APIMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_xx-large(type='radio', name='Method' checked)
+              input#APIMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method' checked)
             Div
               label#FTP.slds-radio__label(for="FTPMethod") FTP
-              input#FTPMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_xx-large(type='radio', name='Method')
+              input#FTPMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method')
 
-        .slds-form-element#PreviewDiv
+        .slds-form-element#PreviewDiv.slds-m-top_large.slds-box
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
           .slds-form-element__control
               img#PreviewImage.slds-align_absolute-center(src='images/icon.png')
