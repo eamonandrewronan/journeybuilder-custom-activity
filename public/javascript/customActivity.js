@@ -316,7 +316,7 @@ function save() {
         payload['arguments'].execute.inArguments = [
             {
                 "contactKey": "{{Contact.Key}}",
-                "contactEmail": "{{Contact.Attribute.LC_Entry_DE.Email}}"
+                "contactEmail": "{{Contact.Attribute.Contact_DE_LC.Email}}"
             }
         ];
 
