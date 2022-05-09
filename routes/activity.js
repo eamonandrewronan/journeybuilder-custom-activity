@@ -145,6 +145,8 @@ exports.validate = (req, res) => {
       console.log("fetched : " + result.records.length);
       console.log("done ? : " + result.done);
 
+      console.log("fetched : " + JSON.stringify(result.records));
+
       var newId = result.records[0].id;
 
       // Single record update
