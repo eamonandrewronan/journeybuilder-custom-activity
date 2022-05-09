@@ -289,11 +289,17 @@ function initialize(data) {
             const $el = $('#' + key);
 
             if ((key == 'commsMap') && ((!commsMap) || (commsMap.length == 0))) {
+                console.log('Setting Comms Map');
+
                 commsMap = value[key];
+                console.log(commsMap);
             }
 
             if ((key == 'imageMap') && ((!imageMap) || (imageMap.length == 0))) {
+                console.log('Setting Image Map');
+
                 imageMap = value[key];
+                console.log(imageMap);
             }
 
             console.log(key);
