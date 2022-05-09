@@ -144,50 +144,7 @@ function onRender() {
         $("#PreviewDiv").hide();    
     }
 
-    $("#DropdownCommunications").change(function () {
-        var comms = getComms();
 
-        console.log('comms');
-        console.log(comms);
-        console.log(imageMap);
-
-        if (comms != 'Select Communication') {
-            $("#MethodDiv").show();    
-            $("#PreviewDiv").show();    
-
-            var iUrl = imageMap[comms];
-
-            $("#PreviewImage").attr("src", iUrl);
-
-  /*          switch (comms) {
-                case 'Welcome' :
-                    $("#PreviewImage").attr("src","images/image1.png");
-                    break;
-                case 'Renewal' :
-                    $("#PreviewImage").attr("src","images/image2.png");
-                    break;
-                case 'Membership Renewal' :
-                    $("#PreviewImage").attr("src","images/image3.png");
-                    break;
-                case 'Send Invoice' :
-                    $("#PreviewImage").attr("src","images/image4.png");
-                    break;
-                case 'Fundraising Pack' :
-                    $("#PreviewImage").attr("src","images/image5.png");
-                    break;
-                case 'Sponsorship Request' :
-                    $("#PreviewImage").attr("src","images/image6.png");
-                    break;
-            } */
-
-        }
-        else {
-            $("#MethodDiv").hide();    
-            $("#PreviewDiv").hide();    
-        }
-
-
-    });
     $("#DropdownOptions").change(function () {
         var vendor = getVendor();
 
@@ -377,6 +334,51 @@ function initialize(data) {
         });
     });
 
+    $("#DropdownCommunications").change(function () {
+        var comms = getComms();
+
+        console.log('comms');
+        console.log(comms);
+        console.log(imageMap);
+
+        if (comms != 'Select Communication') {
+            $("#MethodDiv").show();    
+            $("#PreviewDiv").show();    
+
+            var iUrl = imageMap[comms];
+
+            $("#PreviewImage").attr("src", iUrl);
+
+  /*          switch (comms) {
+                case 'Welcome' :
+                    $("#PreviewImage").attr("src","images/image1.png");
+                    break;
+                case 'Renewal' :
+                    $("#PreviewImage").attr("src","images/image2.png");
+                    break;
+                case 'Membership Renewal' :
+                    $("#PreviewImage").attr("src","images/image3.png");
+                    break;
+                case 'Send Invoice' :
+                    $("#PreviewImage").attr("src","images/image4.png");
+                    break;
+                case 'Fundraising Pack' :
+                    $("#PreviewImage").attr("src","images/image5.png");
+                    break;
+                case 'Sponsorship Request' :
+                    $("#PreviewImage").attr("src","images/image6.png");
+                    break;
+            } */
+
+        }
+        else {
+            $("#MethodDiv").hide();    
+            $("#PreviewDiv").hide();    
+        }
+
+
+    });
+    
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
 
