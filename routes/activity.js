@@ -127,7 +127,7 @@ exports.validate = (req, res) => {
 
   logger.info('validate');
 
-  var id = '00306000025YjA9AAK';
+  var id = 'gc123456789';
 
   var conn = new jsforce.Connection({
     // you can change loginUrl to connect to sandbox or prerelease env.
@@ -139,7 +139,7 @@ exports.validate = (req, res) => {
 
 
     var records = [];
-    conn.query("SELECT Id FROM Contact where id ='" + id + "'", function(err, result) {
+    conn.query("SELECT Id FROM Contact where MC_id__c ='" + id + "'", function(err, result) {
       if (err) { return console.error(err); }
       console.log("total : " + result.totalSize);
       console.log("fetched : " + result.records.length);
@@ -152,7 +152,7 @@ exports.validate = (req, res) => {
       // Single record update
       conn.sobject("Contact").update({ 
         Id : newId,
-        Title : 'Sir'
+        MC_Update_Value__c : 'Updated from JB'
       }, function(err, ret) {
         if (err || !ret.success) { return console.error(err, ret); }
         console.log('Updated Successfully : ' + ret.id);
