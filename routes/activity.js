@@ -147,7 +147,7 @@ exports.validate = (req, res) => {
 
       console.log("fetched : " + JSON.stringify(result.records));
 
-      var newId = result.records[0].id;
+      var newId = result.records[0].Id;
 
       // Single record update
       conn.sobject("Contact").update({ 
