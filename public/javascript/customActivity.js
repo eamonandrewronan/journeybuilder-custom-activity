@@ -330,11 +330,11 @@ function initialize(data) {
             const $el = $('#' + key);
 
             if ((key == 'commsMap') && ((!commsMap) || (commsMap.length == 0))) {
-                commsMap = value;
+                commsMap = value[key];
             }
 
             if ((key == 'imageMap') && ((!imageMap) || (imageMap.length == 0))) {
-                imageMap = value;
+                imageMap = value[key];
             }
 
             console.log(key);
