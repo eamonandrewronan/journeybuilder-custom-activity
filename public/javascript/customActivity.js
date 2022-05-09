@@ -149,7 +149,8 @@ function onRender() {
 
         console.log('comms');
         console.log(comms);
-        
+        console.log(imageMap);
+
         if (comms != 'Select Communication') {
             $("#MethodDiv").show();    
             $("#PreviewDiv").show();    
@@ -194,6 +195,7 @@ function onRender() {
 
         console.log('vendor');
         console.log(vendor);
+        console.log(commsMap);
         
         var data = commsMap[vendor];
 
