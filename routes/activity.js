@@ -25,9 +25,9 @@ exports.execute = async (req, res) => {
       method = 'FTP';
     }
 
-    //    var id = data.inArguments[0].contactKey;
+    var id = data.inArguments[0].contactKey;
 
-    var id = 'gc123456789';
+//    var id = 'gc123456789';
 
     var conn = new jsforce.Connection({
       // you can change loginUrl to connect to sandbox or prerelease env.
