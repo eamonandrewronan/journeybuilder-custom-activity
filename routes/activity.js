@@ -1,7 +1,7 @@
-const { v1: Uuidv1 } = require('uuid');
 const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
+var jsforce = require('jsforce');
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -17,13 +17,11 @@ exports.execute = async (req, res) => {
   logger.info(JSON.stringify(data));
 
   try {
+    let method;
 
-    var method;
-
-    if (data.inArguments[0].APIMethod == 'on') {
+    if (data.inArguments[0].APIMethod === 'on') {
       method = 'API';
-    }
-    else {
+    } else {
       method = 'FTP';
     }
 
@@ -41,13 +39,13 @@ exports.execute = async (req, res) => {
     ]);
   } catch (error) {
     logger.error(error);
-  } 
-
+  }
 
   res.status(200).send({
     status: 'ok',
   });
 };
+
 
 /**
  * Endpoint that receives a notification when a user saves the journey.
@@ -89,6 +87,29 @@ exports.publish = (req, res) => {
  * @param res
  */
 exports.validate = (req, res) => {
+
+  var conn = new jsforce.Connection({
+    // you can change loginUrl to connect to sandbox or prerelease env.
+   loginUrl : 'https://test.salesforce.com'
+  });
+
+  conn.login('liam.collerton@gcdemo.org', 'dt#UnjEc2*CMck1!6#LDCO7eMuJicdnB9tzCCzYlq3Egly', function(err, res) {
+    if (err) { return console.error(err); }
+    conn.query('SELECT Id, Name FROM Contact', function(err, res) {
+      if (err) { return console.error(err); }
+      console.log(res);
+    });
+  });
+
+  // Single record update
+  conn.sobject("Contact").update({ 
+    Id : '00306000025YjA9AAK',
+    Title : 'Lord'
+  }, function(err, ret) {
+    if (err || !ret.success) { return console.error(err, ret); }
+    console.log('Updated Successfully : ' + ret.id);
+    // ...
+  });
 
   logger.info(JSON.stringify(req.body));
 
