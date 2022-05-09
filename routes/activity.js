@@ -2,6 +2,7 @@ const { v1: Uuidv1 } = require('uuid');
 const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
+const notificationsController = require('../server/controllers').notifications;
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -15,6 +16,8 @@ exports.execute = async (req, res) => {
 
   logger.info('execute');
   logger.info(JSON.stringify(data));
+
+  notificationsController.create(notification, res);
 
   try {
 
