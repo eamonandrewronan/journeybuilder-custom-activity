@@ -16,7 +16,9 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-const commsMap = {
+const commsMap={};
+
+/*= {
     
         'Edipost': [
             { 'name': 'Select Communication', 'value': 'Select Communication' },
@@ -39,9 +41,11 @@ const commsMap = {
             { 'name': 'Send Invoice', 'value': 'Send Invoice' }
         ]
         
-};
+}; */
 
-const imageMap = {
+const imageMap={};
+
+/*= {
     'Welcome' : 'images/image1.png',
     'Renewal': 'images/image2.png',
     'Membership Renewal' : 'images/image3.png',
@@ -49,7 +53,7 @@ const imageMap = {
     'Fundraising Pack' : 'images/image5.png',
     'Sponsorship Request' : 'images/image6.png'
          
-};
+}; */
 
 /*
 var data1 = [
@@ -325,11 +329,11 @@ function initialize(data) {
         $.each(inArgument, function (key, value) {
             const $el = $('#' + key);
 
-            if ((key == 'commsMap') && (!commsMap)) {
+            if ((key == 'commsMap') && (commsMap.length == 0)) {
                 commsMap = value;
             }
 
-            if ((key == 'imageMap') && (!imageMap)) {
+            if ((key == 'imageMap') && (imageMap.length = 0)) {
                 imageMap = value;
             }
 
