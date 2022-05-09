@@ -16,7 +16,8 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-const map1 = new Map();
+const commsMap = new Map();
+const imageMap = new Map();
 
 var data1 = [
     { "name": "Select Communication", "value": "Select Communication" },
@@ -24,7 +25,9 @@ var data1 = [
     { "name": "Renewal", "value": "Renewal" }
  ];
 
-map1.set('Edipost', data1);
+ commsMap.set('Edipost', data1);
+ imageMap.set('Welcome', "images/image1.png");
+ imageMap.set('Renewal', "images/image2.png");
 
 var data2 = [
     { "name": "Select Communication", "value": "Select Communication" },
@@ -32,7 +35,10 @@ var data2 = [
     { "name": "Send Invoice", "value": "Send Invoice" }
  ];
 
-map1.set('ONG Conseil', data2);
+commsMap.set('ONG Conseil', data2);
+imageMap.set('Membership Renewal', "images/image3.png");
+imageMap.set('Send Invoice', "images/image4.png");
+
 
 var data3 = [
     { "name": "Select Communication", "value": "Select Communication" },
@@ -40,7 +46,9 @@ var data3 = [
     { "name": "Sponsorship Request", "value": "Sponsorship Request" }
     ];
 
-map1.set('Call to Action', data3);
+commsMap.set('Call to Action', data3);
+imageMap.set('Fundraising Pack', "images/image5.png");
+imageMap.set('Sponsorship Request', "images/image6.png");
 
 var data4 = [
     { "name": "Select Communication", "value": "Select Communication" },
@@ -48,9 +56,10 @@ var data4 = [
     { "name": "Send Invoice", "value": "Send Invoice" }
     ];
 
-map1.set('Voxens', data4);
+commsMap.set('Voxens', data4);
 
-console.log(JSON.stringify(map1));
+console.log(JSON.stringify(commsMap));
+console.log(JSON.stringify(imageMap));
 
 $(window).ready(onRender);
 
@@ -104,7 +113,11 @@ function onRender() {
             $("#MethodDiv").show();    
             $("#PreviewDiv").show();    
 
-            switch (comms) {
+            var iUrl = imageMap.get(comms);
+
+            $("#PreviewImage").attr("src", iUrl);
+
+  /*          switch (comms) {
                 case 'Welcome' :
                     $("#PreviewImage").attr("src","images/image1.png");
                     break;
@@ -123,7 +136,7 @@ function onRender() {
                 case 'Sponsorship Request' :
                     $("#PreviewImage").attr("src","images/image6.png");
                     break;
-            }
+            } */
 
         }
         else {
@@ -141,7 +154,7 @@ function onRender() {
         console.log('vendor');
         console.log(vendor);
         
-        var data = map1.get(vendor);
+        var data = commsMap.get(vendor);
 
         console.log(data);
 
