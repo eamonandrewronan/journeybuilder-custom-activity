@@ -84,7 +84,10 @@ function onRender() {
 
     console.log('OnRender');
 
-    console.log($("#DropdownCommunications"));
+//    console.log($("#DropdownCommunications"));
+
+    console.log(JSON.stringify(commsMap));
+    console.log(JSON.stringify(imageMap));
 
     var vendor = getVendor();
 
