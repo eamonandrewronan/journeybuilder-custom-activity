@@ -329,11 +329,11 @@ function initialize(data) {
         $.each(inArgument, function (key, value) {
             const $el = $('#' + key);
 
-            if ((key == 'commsMap') && (commsMap.length == 0)) {
+            if ((key == 'commsMap') && ((!commsMap) || (commsMap.length == 0))) {
                 commsMap = value;
             }
 
-            if ((key == 'imageMap') && (imageMap.length = 0)) {
+            if ((key == 'imageMap') && ((!imageMap) || (imageMap.length == 0))) {
                 imageMap = value;
             }
 
