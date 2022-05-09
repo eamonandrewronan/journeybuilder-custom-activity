@@ -334,6 +334,9 @@ function initialize(data) {
         });
     });
 
+    console.log(imageMap);
+    console.log(commsMap);
+
     $("#DropdownCommunications").change(function () {
         var comms = getComms();
 
@@ -378,7 +381,7 @@ function initialize(data) {
 
 
     });
-    
+
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
 
