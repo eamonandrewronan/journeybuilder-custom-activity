@@ -16,43 +16,40 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-const commsMap = new Map(
-    [
-        ['Edipost', [
-            { "name": "Select Communication", "value": "Select Communication" },
-            { "name": "Welcome", "value": "Welcome" },
-            { "name": "Renewal", "value": "Renewal" }
-         ]],
-         ['ONG Conseil', [
-            { "name": "Select Communication", "value": "Select Communication" },
-            { "name": "Membership Renewal", "value": "Membership Renewal" },
-            { "name": "Send Invoice", "value": "Send Invoice" }
-         ]],
-         ['Call to Action', [
-            { "name": "Select Communication", "value": "Select Communication" },
-            { "name": "Fundraising Pack", "value": "Fundraising Pack" },
-            { "name": "Sponsorship Request", "value": "Sponsorship Request" }
-        ]],
-        ['Voxens', [
-            { "name": "Select Communication", "value": "Select Communication" },
-            { "name": "Welcome", "value": "Welcome" },
-            { "name": "Send Invoice", "value": "Send Invoice" }
-        ]],
-         
-    ]
-);
-const imageMap = new Map(
-    [
-        ["Welcome", "images/image1.png"],
-        ['Renewal', "images/image2.png"],
-        ['Membership Renewal', "images/image3.png"],
-        ['Send Invoice', "images/image4.png"],
-        ['Fundraising Pack', "images/image5.png"],
-        ['Sponsorship Request', "images/image6.png"],
-         
-    ]
+const commsMap = {
+    
+        'Edipost': [
+            { 'name': 'Select Communication', 'value': 'Select Communication' },
+            { 'name': 'Welcome', 'value': 'Welcome' },
+            { 'name': 'Renewal', 'value': 'Renewal' }
+        ],
+        'ONG Conseil' : [
+            { 'name': 'Select Communication', 'value': 'Select Communication' },
+            { 'name': 'Membership Renewal', 'value': 'Membership Renewal' },
+            { 'name': 'Send Invoice', 'value': 'Send Invoice' }
+        ],
+         'Call to Action' : [
+            { 'name': 'Select Communication', 'value': 'Select Communication' },
+            { 'name': 'Fundraising Pack', 'value': 'Fundraising Pack' },
+            { 'name': 'Sponsorship Request', 'value': 'Sponsorship Request' }
+         ],
+        'Voxens': [
+            { 'name': 'Select Communication', 'value': 'Select Communication' },
+            { 'name': 'Welcome', 'value': 'Welcome' },
+            { 'name': 'Send Invoice', 'value': 'Send Invoice' }
+        ]
+        
+};
 
-);
+const imageMap = {
+    'Welcome' : 'images/image1.png',
+    'Renewal': 'images/image2.png',
+    'Membership Renewal' : 'images/image3.png',
+    'Send Invoice' : 'images/image4.png',
+    'Fundraising Pack' : 'images/image5.png',
+    'Sponsorship Request' : 'images/image6.png'
+         
+};
 
 /*
 var data1 = [
@@ -153,7 +150,7 @@ function onRender() {
             $("#MethodDiv").show();    
             $("#PreviewDiv").show();    
 
-            var iUrl = imageMap.get(comms);
+            var iUrl = imageMap[comms];
 
             $("#PreviewImage").attr("src", iUrl);
 
@@ -194,7 +191,7 @@ function onRender() {
         console.log('vendor');
         console.log(vendor);
         
-        var data = commsMap.get(vendor);
+        var data = commsMap[vendor];
 
         console.log(data);
 
