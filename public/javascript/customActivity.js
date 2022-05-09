@@ -317,12 +317,21 @@ function initialize(data) {
         ? payload['arguments'].execute.inArguments
         : {};
 
+
     $.each(inArguments, function (index, inArgument) {
 
         console.log(JSON.stringify(inArgument));
 
         $.each(inArgument, function (key, value) {
             const $el = $('#' + key);
+
+            if ((key == 'commsMap') && (!commsMap)) {
+                commsMap = value;
+            }
+
+            if ((key == 'imageMap') && (!imageMap)) {
+                imageMap = value;
+            }
 
             console.log(key);
             console.log(value);
