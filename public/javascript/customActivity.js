@@ -291,14 +291,14 @@ function initialize(data) {
             if ((key == 'commsMap') && ((!commsMap) || (commsMap.length == 0))) {
                 console.log('Setting Comms Map');
 
-                commsMap = value[key];
+                commsMap = value;
                 console.log(commsMap);
             }
 
             if ((key == 'imageMap') && ((!imageMap) || (imageMap.length == 0))) {
                 console.log('Setting Image Map');
 
-                imageMap = value[key];
+                imageMap = value;
                 console.log(imageMap);
             }
 
