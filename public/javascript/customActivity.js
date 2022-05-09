@@ -16,9 +16,45 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-const commsMap = new Map();
-const imageMap = new Map();
+const commsMap = new Map(
+    [
+        ['Edipost', [
+            { "name": "Select Communication", "value": "Select Communication" },
+            { "name": "Welcome", "value": "Welcome" },
+            { "name": "Renewal", "value": "Renewal" }
+         ]],
+         ['ONG Conseil', [
+            { "name": "Select Communication", "value": "Select Communication" },
+            { "name": "Membership Renewal", "value": "Membership Renewal" },
+            { "name": "Send Invoice", "value": "Send Invoice" }
+         ]],
+         ['Call to Action', [
+            { "name": "Select Communication", "value": "Select Communication" },
+            { "name": "Fundraising Pack", "value": "Fundraising Pack" },
+            { "name": "Sponsorship Request", "value": "Sponsorship Request" }
+        ]],
+        ['Voxens', [
+            { "name": "Select Communication", "value": "Select Communication" },
+            { "name": "Welcome", "value": "Welcome" },
+            { "name": "Send Invoice", "value": "Send Invoice" }
+        ]],
+         
+    ]
+);
+const imageMap = new Map(
+    [
+        ["Welcome", "images/image1.png"],
+        ['Renewal', "images/image2.png"],
+        ['Membership Renewal', "images/image3.png"],
+        ['Send Invoice', "images/image4.png"],
+        ['Fundraising Pack', "images/image5.png"],
+        ['Sponsorship Request', "images/image6.png"],
+         
+    ]
 
+);
+
+/*
 var data1 = [
     { "name": "Select Communication", "value": "Select Communication" },
     { "name": "Welcome", "value": "Welcome" },
@@ -57,6 +93,7 @@ var data4 = [
     ];
 
 commsMap.set('Voxens', data4);
+*/
 
 console.log(JSON.stringify(commsMap));
 console.log(JSON.stringify(imageMap));
