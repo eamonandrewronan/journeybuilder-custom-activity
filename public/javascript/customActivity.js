@@ -296,6 +296,8 @@ function initialize(data) {
 
                 $("#DropdownOptions").empty();
 
+                $('#DropdownOptions').append('<option value="Select Vendor">Select Vendor</option>');
+
                 for(var i in commsMap){
                     $('#DropdownOptions').append('<option value="' + i + '">' + i + '</option>');
 
