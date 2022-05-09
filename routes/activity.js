@@ -95,21 +95,18 @@ exports.validate = (req, res) => {
 
   conn.login('liam.collerton@gcdemo.org', 'dt#UnjEc2*CMck1!6#LDCO7eMuJicdnB9tzCCzYlq3Egly', function(err, res) {
     if (err) { return console.error(err); }
-    conn.query('SELECT Id, Name FROM Contact', function(err, res) {
-      if (err) { return console.error(err); }
-      console.log(res);
+
+    // Single record update
+    conn.sobject("Contact").update({ 
+      Id : '00306000025YjA9AAK',
+      Title : 'Lord'
+    }, function(err, ret) {
+      if (err || !ret.success) { return console.error(err, ret); }
+      console.log('Updated Successfully : ' + ret.id);
+      // ...
     });
   });
 
-  // Single record update
-  conn.sobject("Contact").update({ 
-    Id : '00306000025YjA9AAK',
-    Title : 'Lord'
-  }, function(err, ret) {
-    if (err || !ret.success) { return console.error(err, ret); }
-    console.log('Updated Successfully : ' + ret.id);
-    // ...
-  });
 
   logger.info(JSON.stringify(req.body));
 
