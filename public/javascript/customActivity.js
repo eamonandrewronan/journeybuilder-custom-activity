@@ -409,12 +409,12 @@ function save() {
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
 
-        payload['arguments'].execute.inArguments = [
-            {
-                "contactKey": "{{Contact.Key}}",
-                "contactEmail": "{{Contact.Attribute.Contact_DE_LC.Email}}"
-            }
-        ];
+  //      payload['arguments'].execute.inArguments = [
+  //          {
+   //             "contactKey": "{{Contact.Key}}",
+    //            "contactEmail": "{{Contact.Attribute.Contact_DE_LC.Email}}"
+    //        }
+   //     ];
 
         $('.js-activity-setting').each(function () {
             const $el = $(this);
