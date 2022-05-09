@@ -16,6 +16,42 @@ let authTokens = {};
 let payload = {};
 let $form;
 
+const map1 = new Map();
+
+var data1 = [
+    { "name": "Select Communication", "value": "Select Communication" },
+    { "name": "Welcome", "value": "Welcome" },
+    { "name": "Renewal", "value": "Renewal" }
+ ];
+
+map1.set('Edipost', data1);
+
+var data2 = [
+    { "name": "Select Communication", "value": "Select Communication" },
+    { "name": "Membership Renewal", "value": "Membership Renewal" },
+    { "name": "Send Invoice", "value": "Send Invoice" }
+ ];
+
+map1.set('ONG Conseil', data2);
+
+var data3 = [
+    { "name": "Select Communication", "value": "Select Communication" },
+    { "name": "Fundraising Pack", "value": "Fundraising Pack" },
+    { "name": "Sponsorship Request", "value": "Sponsorship Request" }
+    ];
+
+map1.set('Call to Action', data3);
+
+var data4 = [
+    { "name": "Select Communication", "value": "Select Communication" },
+    { "name": "Welcome", "value": "Welcome" },
+    { "name": "Send Invoice", "value": "Send Invoice" }
+    ];
+
+map1.set('Voxens', data4);
+
+console.log(JSON.stringify(map1));
+
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
@@ -105,7 +141,17 @@ function onRender() {
         console.log('vendor');
         console.log(vendor);
         
-        if (vendor == 'Edipost') {
+        var data = map1.get(vendor);
+
+        console.log(data);
+
+        for (var index = 0; index < data.length; index++) {
+           console.log(data[index]);
+
+           $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+        }
+
+/*        if (vendor == 'Edipost') {
 
             var data = [
                 { "name": "Select Communication", "value": "Select Communication" },
@@ -165,7 +211,7 @@ function onRender() {
                 console.log(data[index]);
                 $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
              }
-        }
+        } */
 
         if (vendor != 'Select_Vendor') {
             $("#DropdownCommunications").show();
