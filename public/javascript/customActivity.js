@@ -16,7 +16,7 @@ let authTokens = {};
 let payload = {};
 let $form;
 
-const commsMap={};
+let commsMap;
 
 /*= {
     
@@ -43,7 +43,7 @@ const commsMap={};
         
 }; */
 
-const imageMap={};
+let imageMap;
 
 /*= {
     'Welcome' : 'images/image1.png',
