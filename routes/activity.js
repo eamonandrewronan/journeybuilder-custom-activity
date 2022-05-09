@@ -90,7 +90,7 @@ exports.validate = (req, res) => {
 
   var conn = new jsforce.Connection({
     // you can change loginUrl to connect to sandbox or prerelease env.
-   loginUrl : 'https://test.salesforce.com'
+   loginUrl : 'https://login.salesforce.com'
   });
 
   conn.login('liam.collerton@gcdemo.org', 'dt#UnjEc2*CMck1!6#LDCO7eMuJicdnB9tzCCzYlq3Egly', function(err, res) {
