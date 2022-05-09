@@ -314,7 +314,7 @@ function initialize(data) {
     );
 
     console.log('ca.initialize - ');
-    console.log(JSON.stringify(payload));
+    console.log(JSON.stringify(data));
     
     const inArguments = hasInArguments
         ? payload['arguments'].execute.inArguments
