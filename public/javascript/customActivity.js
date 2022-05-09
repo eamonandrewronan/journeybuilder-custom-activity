@@ -129,7 +129,7 @@ function onRender() {
 
     var vendor = getVendor();
 
-    if (vendor == 'Select_Vendor') {
+    if (vendor == 'Select Vendor') {
         $("#DropdownCommunications").hide();
         $("#Communications").hide();
         $("#CommunicationsDiv").hide();    
@@ -226,7 +226,7 @@ function onRender() {
              }
         } */
 
-        if (vendor != 'Select_Vendor') {
+        if (vendor != 'Select Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
             $("#CommunicationsDiv").show(); 
@@ -293,6 +293,13 @@ function initialize(data) {
 
                 commsMap = value;
                 console.log(commsMap);
+
+                $("#DropdownOptions").empty();
+
+                for(var i in commsMap){
+                    $('#DropdownOptions').append('<option value="' + i + '">' + i + '</option>');
+
+                }
             }
 
             if ((key == 'imageMap') && ((!imageMap) || (imageMap.length == 0))) {
@@ -319,7 +326,7 @@ function initialize(data) {
             }
 
             if (key == 'DropdownOptions') {
-                if (value != 'Select_Vendor') {
+                if (value != 'Select Vendor') {
                     $("#DropdownCommunications").show();
                     $("#Communications").show();
                     $("#CommunicationsDiv").show(); 

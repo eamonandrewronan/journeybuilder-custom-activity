@@ -27,9 +27,9 @@ exports.ui = (req, res) => {
     dropdownOptions: [
       {
         name: 'Select Vendor',
-        value: 'Select_Vendor',
+        value: 'Select Vendor',
       },
-      {
+/*      {
         name: 'Edipost',
         value: 'Edipost',
       },
@@ -44,7 +44,7 @@ exports.ui = (req, res) => {
       {
         name: 'Voxens',
         value: 'Voxens',
-      },
+      },*/
     ],
     dropdownCommunications: [
       {
