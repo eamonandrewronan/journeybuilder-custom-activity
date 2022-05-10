@@ -23,7 +23,7 @@
     
             "Edipost": [
                 { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Welcome Pack", "value": "Welcome Pack" },
                 { "name": "Renewal", "value": "Renewal" }
             ],
             "ONG Conseil" : [
@@ -38,14 +38,14 @@
              ],
             "Voxens": [
                 { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
+                { "name": "Welcome Pack", "value": "Welcome Pack" },
                 { "name": "Send Invoice", "value": "Send Invoice" }
             ]
             
     }
         },
         {
-          "imageMap" : {"Welcome":"images/image1.png","Renewal":"images/image2.png","Membership Renewal":"images/image3.png","Send Invoice":"images/image4.png","Fundraising Pack":"images/image5.png","Sponsorship Request":"images/image6.png"}
+          "imageMap" : {"Welcome Pack":"images/image1.png","Renewal":"images/image2.png","Membership Renewal":"images/image3.png","Send Invoice":"images/image4.png","Fundraising Pack":"images/image5.png","Sponsorship Request":"images/image6.png"}
         }
       ],
       "outArguments": [
