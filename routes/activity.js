@@ -76,7 +76,7 @@ exports.execute = async (req, res) => {
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
-          SubscriberKey: data.inArguments[0].contactKey,
+          SubscriberKey: data.inArguments[0].contactIdentifier,
         },
         values: {
           Vendor: data.inArguments[0].DropdownOptions,
