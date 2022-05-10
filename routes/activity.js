@@ -25,7 +25,7 @@ exports.execute = async (req, res) => {
       method = 'FTP';
     }
 
-    var id = data.inArguments[0].contactKey;
+    var id = data.inArguments[0].contactIdentifier;
 
     var apiUrl = process.env.API_URL;
     var apiUsername = process.env.API_USERNAME;
