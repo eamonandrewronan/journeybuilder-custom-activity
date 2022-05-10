@@ -27,17 +27,19 @@ exports.execute = async (req, res) => {
 
     var id = data.inArguments[0].contactKey;
 
-//    var id = 'gc123456789';
+    var apiUrl = process.env.API_URL;
+    var apiUsername = process.env.API_USERNAME;
+    var apiPassword = process.env.API_PASSWORD;
 
     var conn = new jsforce.Connection({
       // you can change loginUrl to connect to sandbox or prerelease env.
-    loginUrl : 'https://login.salesforce.com'
+    loginUrl : apiUrl
     });
 
-    conn.login('liam.collerton@gcdemo.org', 'dt#UnjEc2*CMck1!6#LDCO7eMuJicdnB9tzCCzYlq3Egly', function(err, res) {
+    conn.login(apiUsername, apiPassword, function(err, res) {
       if (err) { return console.error(err); }
 
-      conn.query("SELECT Id FROM Contact where MC_id__c ='" + id + "'", function(err, result) {
+      conn.query("SELECT Id FROM Contact where Email ='" + id + "'", function(err, result) {
         if (err) { return console.error(err); }
         console.log("total : " + result.totalSize);
         console.log("fetched : " + result.records.length);
@@ -50,7 +52,7 @@ exports.execute = async (req, res) => {
         // Single record update
         conn.sobject("Contact").update({ 
           Id : newId,
-          MC_Update_Value__c : 'Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method
+          Description : 'Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method
         }, function(err, ret) {
           if (err || !ret.success) { return console.error(err, ret); }
           console.log('Updated Successfully : ' + ret.id);

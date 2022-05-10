@@ -23,7 +23,7 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'LC FTP Connect',
+    title: 'API Demo Connect',
     dropdownOptions: [
       {
         name: 'Select Vendor',
