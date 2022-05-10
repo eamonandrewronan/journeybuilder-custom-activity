@@ -53,8 +53,9 @@ exports.execute = async (req, res) => {
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
+        var timeStr = today.getTime();
 
-        today = mm + '/' + dd + '/' + yyyy;
+        today = mm + '/' + dd + '/' + yyyy + ' ' + timeStr;
         
         // Single record update
         conn.sobject("Contact").update({ 
