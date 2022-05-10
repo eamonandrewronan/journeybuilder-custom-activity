@@ -49,10 +49,17 @@ exports.execute = async (req, res) => {
 
         var newId = result.records[0].Id;
 
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+        
         // Single record update
         conn.sobject("Contact").update({ 
           Id : newId,
-          Description : 'Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method
+          Description : today + ' - Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method
         }, function(err, ret) {
           if (err || !ret.success) { return console.error(err, ret); }
           console.log('Updated Successfully : ' + ret.id);
