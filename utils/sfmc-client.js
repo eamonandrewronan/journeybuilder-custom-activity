@@ -17,8 +17,11 @@ const options = {
 };
 
 const client = new FuelRest(options);
-const etclient = new ET_Client(process.env.SFMC_CLIENT_ID, process.env.SFMC_CLIENT_SECRET, process.env.STACK);
-/**
+const etclient = new ET_Client(process.env.SFMC_CLIENT_ID, 
+  process.env.SFMC_CLIENT_SECRET, process.env.STACK, `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`, 
+  `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`);
+
+  /**
  * Save data in DE
  * @param externalKey
  * @param data
@@ -33,6 +36,8 @@ const saveData = async (externalKey, data) => client.post({
   body: data,
 });
 
+
+
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
   props: ['DropDownJSON', 'ImageJSON']
@@ -42,4 +47,5 @@ const deRow = etclient.dataExtensionRow({
 module.exports = {
   client,
   saveData,
+  deRow,
 };
