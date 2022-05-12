@@ -28,8 +28,8 @@ const client = new FuelRest(options);
     process.env.SFMC_CLIENT_SECRET, 
     process.env.STACK, 
     {
-      `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`, 
-      `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`, 
+      origin, 
+      authOrigin, 
       soapOrigin, 
       authOptions: { 
         authVersion: 2, 
