@@ -17,11 +17,28 @@ const options = {
 };
 
 const client = new FuelRest(options);
-const etclient = new ET_Client(process.env.SFMC_CLIENT_ID, 
-  process.env.SFMC_CLIENT_SECRET, process.env.STACK, `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`, 
-  `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`);
 
-  etclient.FuelAuthClient.getAccessToken(etclient.FuelAuthClient); //second param here can be a callback. or you change this to use promises like fuel-rest.
+  const origin              = 'https://endpoint.rest.marketingcloudapis.com/';
+  const authOrigin          = 'https://endpoint.auth.marketingcloudapis.com/';
+  const soapOrigin          = 'https://endpoint.soap.marketingcloudapis.com/';
+  
+  
+  const etclient = new ET_Client(
+    process.env.SFMC_CLIENT_ID, 
+    process.env.SFMC_CLIENT_SECRET, 
+    process.env.STACK, 
+    {
+      `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`, 
+      `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`, 
+      soapOrigin, 
+      authOptions: { 
+        authVersion: 2, 
+        accountId: process.env.SFMC_ACCOUNT_ID, 
+        scope: 'data_extensions_read data_extensions_write',
+        applicationType: 'server'
+      }
+    }
+  ); 
 
   /**
  * Save data in DE
