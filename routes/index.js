@@ -17,10 +17,13 @@ exports.config = (req, res) => {
   try {
     SFClient.deRow.get((err, res) => {
       if (err) {
+
+        logger.info('Get err');
+
         logger.error(err.message);
       } else {
   
-        logger.info('Get');
+        logger.info('Get result');
   
         logger.info(res);
         logger.info(res.body);
@@ -34,6 +37,9 @@ exports.config = (req, res) => {
       }
     });
 } catch (error) {
+
+  logger.info('Get error');
+
   logger.error(error);  
 }
 
