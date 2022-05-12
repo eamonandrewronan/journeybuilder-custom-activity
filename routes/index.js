@@ -14,17 +14,28 @@ exports.config = (req, res) => {
 
   const configTemplate = fs.readFileSync(file, 'utf-8');
 
-  SFClient.deRow.get((err, res) => {
-    if (err) {
-      logger.error(err.message);
-    } else {
-      for (const result of res.body.Results) {
-        for (const property of result.Properties.Property) {
-          logger.info(property);
+  try {
+    SFClient.deRow.get((err, res) => {
+      if (err) {
+        logger.error(err.message);
+      } else {
+  
+        logger.info('Get');
+  
+        logger.info(res);
+        logger.info(res.body);
+        logger.info(res.body.Results);
+        
+        for (const result of res.body.Results) {
+          for (const property of result.Properties.Property) {
+            logger.info(property);
+          }
         }
       }
-    }
-  });
+    });
+} catch (error) {
+  logger.error(error);  
+}
 
   const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
 
