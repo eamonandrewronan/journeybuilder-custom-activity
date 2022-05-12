@@ -21,6 +21,8 @@ const etclient = new ET_Client(process.env.SFMC_CLIENT_ID,
   process.env.SFMC_CLIENT_SECRET, process.env.STACK, `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`, 
   `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`);
 
+  etclient.FuelAuthClient.getAccessToken(etclient.FuelAuthClient); //second param here can be a callback. or you change this to use promises like fuel-rest.
+
   /**
  * Save data in DE
  * @param externalKey
@@ -35,8 +37,6 @@ const saveData = async (externalKey, data) => client.post({
   json: true,
   body: data,
 });
-
-
 
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
