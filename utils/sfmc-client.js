@@ -32,6 +32,12 @@ const saveData = async (externalKey, data) => client.post({
   body: data,
 });
 
+const deRow = client.dataExtensionRow({
+  Name: process.env.CONFIG_DE,
+  props: ['DropDownJSON', 'ImageJSON']
+  // to return all rows, delete the filter property
+});
+
 module.exports = {
   client,
   saveData,
