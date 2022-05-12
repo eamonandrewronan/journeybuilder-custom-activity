@@ -13,8 +13,8 @@ exports.config = (req, res) => {
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
   const configTemplate = fs.readFileSync(file, 'utf-8');
-  const configTemplate2;
-  const configTemplate3;
+  var configTemplate2;
+  var configTemplate3;
 
   logger.info(configTemplate);
 
