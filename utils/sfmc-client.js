@@ -1,4 +1,5 @@
 const FuelRest = require('fuel-rest');
+const ET_Client = require('sfmc-fuelsdk-node');
 
 const options = {
   auth: {
@@ -16,7 +17,7 @@ const options = {
 };
 
 const client = new FuelRest(options);
-
+const etclient = new ET_Client(process.env.SFMC_CLIENT_ID, process.env.SFMC_CLIENT_SECRET, process.env.STACK);
 /**
  * Save data in DE
  * @param externalKey
@@ -32,7 +33,7 @@ const saveData = async (externalKey, data) => client.post({
   body: data,
 });
 
-const deRow = client.dataExtensionRow({
+const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
   props: ['DropDownJSON', 'ImageJSON']
   // to return all rows, delete the filter property

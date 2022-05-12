@@ -24,6 +24,7 @@
     "pug": "^3.0.0",
     "sequelize": "^4.33.4",
     "sequelize-cli": "~4.0.0",
+    "sfmc-fuelsdk-node": "^2.4.0",
     "uuid": "^8.3.1",
     "winston": "^3.3.3"
   },
