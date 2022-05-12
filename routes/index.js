@@ -12,7 +12,9 @@ exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
-  const configTemplate = fs.readFileSync(file, 'utf-8');
+  var configTemplate = fs.readFileSync(file, 'utf-8');
+
+  logger.info(configTemplate);
 
   try {
     SFClient.deRow.get((err, res) => {
@@ -32,6 +34,17 @@ exports.config = (req, res) => {
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
             logger.info(property);
+
+            if (property.Name == 'DropDownJSON') {
+
+              configTemplate = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
+
+            }
+            if (property.Name == 'ImageJSON') {
+
+              configTemplate = configTemplate.replace('%%IMAGECONFIG%%' , property.value);
+
+            }
           }
         }
       }
