@@ -24,7 +24,7 @@ exports.config = (req, res) => {
         }
       }
     }
-  }
+  };
 
   const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
 
