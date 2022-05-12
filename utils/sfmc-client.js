@@ -18,9 +18,9 @@ const options = {
 
 const client = new FuelRest(options);
 
-  const origin              = 'https://endpoint.rest.marketingcloudapis.com/';
-  const authOrigin          = 'https://endpoint.auth.marketingcloudapis.com/';
-  const soapOrigin          = 'https://endpoint.soap.marketingcloudapis.com/';
+  const origin              = 'https://' + process.env.SFMC_SUBDOMAIN + '.rest.marketingcloudapis.com/';
+  const authOrigin          = 'https://' + process.env.SFMC_SUBDOMAIN + '.auth.marketingcloudapis.com/';
+  const soapOrigin          = 'https://' + process.env.SFMC_SUBDOMAIN + '.soap.marketingcloudapis.com/';
   
   
   const etclient = new ET_Client(
