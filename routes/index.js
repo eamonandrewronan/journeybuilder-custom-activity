@@ -12,7 +12,9 @@ exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
-  var configTemplate = fs.readFileSync(file, 'utf-8');
+  const configTemplate = fs.readFileSync(file, 'utf-8');
+  const configTemplate2;
+  const configTemplate3;
 
   logger.info(configTemplate);
 
@@ -27,9 +29,9 @@ exports.config = (req, res) => {
   
         logger.info('Get result');
   
-        logger.info(res);
-        logger.info(res.body);
-        logger.info(res.body.Results);
+   //     logger.info(res);
+  //      logger.info(res.body);
+  //      logger.info(res.body.Results);
         
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
@@ -37,12 +39,12 @@ exports.config = (req, res) => {
 
             if (property.Name == 'DropDownJSON') {
 
-              configTemplate = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
+              configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
 
             }
             if (property.Name == 'ImageJSON') {
 
-              configTemplate = configTemplate.replace('%%IMAGECONFIG%%' , property.value);
+              configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
 
             }
           }
@@ -56,7 +58,7 @@ exports.config = (req, res) => {
   logger.error(error);  
 }
 
-  const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
+  const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
 
   res.json(config);
 };
