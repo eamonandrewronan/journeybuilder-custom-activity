@@ -462,7 +462,12 @@ function save() {
 
             let valToStore;
             let idToStore = setting.id;
-            
+
+            console.log($el.attr('type'));
+            console.log('setting id - ' + setting.id);
+            console.log('setting.value - ' + setting.value);
+            console.log('idToStore - ' + idToStore);
+        
             if($el.attr('type') === 'radio') {
 
                 console.log($el.is(":checked"));
@@ -480,9 +485,6 @@ function save() {
 
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
 
-                console.log($el.attr('type'));
-                console.log('setting id - ' + setting.id);
-                console.log('setting.value - ' + setting.value);
                 console.log(JSON.stringify(value));
                 
                 console.log('key - ' + Object.keys(value)[0]);
