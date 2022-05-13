@@ -466,6 +466,7 @@ function save() {
                 console.log('setting id - ' + setting.id);
                 console.log('setting.value - ' + setting.value);
                 console.log('value - ' + value);
+                console.log('value[0] - ' + value[0]);
                 console.log('index - ' + index);
                 console.log(JSON.stringify(value));
 
