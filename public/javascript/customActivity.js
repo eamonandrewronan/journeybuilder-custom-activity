@@ -460,32 +460,46 @@ function save() {
 
             console.log(JSON.stringify(setting));
 
+            let valToStore;
+            let idToStore = setting.id;
+            
+            if($el.attr('type') === 'radio') {
+
+                console.log($el.is(":checked"));
+
+                if($el.is(":checked")) {
+                    valToStore = setting.value;
+                } else {
+                    valToStore = 'false';
+                }
+            } else {
+                valToStore = setting.value;
+            }
+
+            let found = false;
+
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
 
                 console.log($el.attr('type'));
                 console.log('setting id - ' + setting.id);
                 console.log('setting.value - ' + setting.value);
-                console.log('value - ' + value);
-                console.log('value[0] - ' + value[0]);
-                console.log('value.key - ' + value.key);
-                console.log('index - ' + index);
                 console.log(JSON.stringify(value));
                 
                 console.log('key - ' + Object.keys(value)[0]);
 
-                if($el.attr('type') === 'radio') {
-
-                    console.log($el.is(":checked"));
-
-                    if($el.is(":checked")) {
-                        value[setting.id] = setting.value;
-                    } else {
-                        value[setting.id] = 'false';
-                    }
-                } else {
-                    value[setting.id] = setting.value;
+                if (Object.keys(value)[0] == idToStore) {
+                    value = valToStore;
+                    found = true;
                 }
+
             })
+
+            if (found == false) {
+
+                let newVal = {idToStore:valToStore};
+
+                payload['arguments'].execute.inArguments.push(newVal);
+            }
         });
 
         console.log('ca.payload - ');
