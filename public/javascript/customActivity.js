@@ -18,83 +18,7 @@ let $form;
 
 let commsMap;
 
-/*= {
-    
-        'Edipost': [
-            { 'name': 'Select Communication', 'value': 'Select Communication' },
-            { 'name': 'Welcome', 'value': 'Welcome' },
-            { 'name': 'Renewal', 'value': 'Renewal' }
-        ],
-        'ONG Conseil' : [
-            { 'name': 'Select Communication', 'value': 'Select Communication' },
-            { 'name': 'Membership Renewal', 'value': 'Membership Renewal' },
-            { 'name': 'Send Invoice', 'value': 'Send Invoice' }
-        ],
-         'Call to Action' : [
-            { 'name': 'Select Communication', 'value': 'Select Communication' },
-            { 'name': 'Fundraising Pack', 'value': 'Fundraising Pack' },
-            { 'name': 'Sponsorship Request', 'value': 'Sponsorship Request' }
-         ],
-        'Voxens': [
-            { 'name': 'Select Communication', 'value': 'Select Communication' },
-            { 'name': 'Welcome', 'value': 'Welcome' },
-            { 'name': 'Send Invoice', 'value': 'Send Invoice' }
-        ]
-        
-}; */
-
 let imageMap;
-
-/*= {
-    'Welcome' : 'images/image1.png',
-    'Renewal': 'images/image2.png',
-    'Membership Renewal' : 'images/image3.png',
-    'Send Invoice' : 'images/image4.png',
-    'Fundraising Pack' : 'images/image5.png',
-    'Sponsorship Request' : 'images/image6.png'
-         
-}; */
-
-/*
-var data1 = [
-    { "name": "Select Communication", "value": "Select Communication" },
-    { "name": "Welcome", "value": "Welcome" },
-    { "name": "Renewal", "value": "Renewal" }
- ];
-
- commsMap.set('Edipost', data1);
- imageMap.set('Welcome', "images/image1.png");
- imageMap.set('Renewal', "images/image2.png");
-
-var data2 = [
-    { "name": "Select Communication", "value": "Select Communication" },
-    { "name": "Membership Renewal", "value": "Membership Renewal" },
-    { "name": "Send Invoice", "value": "Send Invoice" }
- ];
-
-commsMap.set('ONG Conseil', data2);
-imageMap.set('Membership Renewal', "images/image3.png");
-imageMap.set('Send Invoice', "images/image4.png");
-
-
-var data3 = [
-    { "name": "Select Communication", "value": "Select Communication" },
-    { "name": "Fundraising Pack", "value": "Fundraising Pack" },
-    { "name": "Sponsorship Request", "value": "Sponsorship Request" }
-    ];
-
-commsMap.set('Call to Action', data3);
-imageMap.set('Fundraising Pack', "images/image5.png");
-imageMap.set('Sponsorship Request', "images/image6.png");
-
-var data4 = [
-    { "name": "Select Communication", "value": "Select Communication" },
-    { "name": "Welcome", "value": "Welcome" },
-    { "name": "Send Invoice", "value": "Send Invoice" }
-    ];
-
-commsMap.set('Voxens', data4);
-*/
 
 console.log(JSON.stringify(commsMap));
 console.log(JSON.stringify(imageMap));
@@ -164,68 +88,6 @@ function onRender() {
            $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
         }
 
-/*        if (vendor == 'Edipost') {
-
-            var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
-                { "name": "Renewal", "value": "Renewal" }
-             ];
-
-             console.log(data);
-
-             for (var index = 0; index < data.length; index++) {
-                console.log(data[index]);
-
-                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
-             }
-        }
-
-        if (vendor == 'ONG Conseil') {
-
-            var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Membership Renewal", "value": "Membership Renewal" },
-                { "name": "Send Invoice", "value": "Send Invoice" }
-             ];
-             console.log(data);
-
-             for (var index = 0; index < data.length; index++) {
-                console.log(data[index]);
-                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
-             }
-        }
-
-        if (vendor == 'Call to Action') {
-
-            var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Fundraising Pack", "value": "Fundraising Pack" },
-                { "name": "Sponsorship Request", "value": "Sponsorship Request" }
-             ];
-             console.log(data);
-
-             for (var index = 0; index < data.length; index++) {
-                console.log(data[index]);
-                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
-             }
-        }
-
-        if (vendor == 'Voxens') {
-
-            var data = [
-                { "name": "Select Communication", "value": "Select Communication" },
-                { "name": "Welcome", "value": "Welcome" },
-                { "name": "Send Invoice", "value": "Send Invoice" }
-             ];
-             console.log(data);
-
-             for (var index = 0; index < data.length; index++) {
-                console.log(data[index]);
-                $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
-             }
-        } */
-
         if (vendor != 'Select Vendor') {
             $("#DropdownCommunications").show();
             $("#Communications").show();    
@@ -244,17 +106,31 @@ function onRender() {
 
     });
   
+    $("#DropdownCommunications").change(function () {
+        var comms = getComms();
 
-    // validation
-//    validateForm(function($form) {
-//        $form.on('change click keyup input paste', 'input, textarea', function () {
-//            buttonSettings.enabled = $form.valid();
+        console.log('comms');
+        console.log(comms);
+        console.log(imageMap);
 
-//            console.log(buttonSettings.enabled);
+        if (comms != 'Select Communication') {
+            $("#MethodDiv").show();    
+            $("#PreviewDiv").show();    
 
-  //          connection.trigger('updateButton', buttonSettings);
-    //    });
-  //  });
+            var iUrl = imageMap[comms];
+
+            console.log(iUrl);
+
+            $("#PreviewImage").attr("src", iUrl);
+
+        }
+        else {
+            $("#MethodDiv").hide();    
+            $("#PreviewDiv").hide();    
+        }
+
+
+    });
 }
 
 /**
@@ -352,31 +228,7 @@ function initialize(data) {
     console.log(imageMap);
     console.log(commsMap);
 
-    $("#DropdownCommunications").change(function () {
-        var comms = getComms();
-
-        console.log('comms');
-        console.log(comms);
-        console.log(imageMap);
-
-        if (comms != 'Select Communication') {
-            $("#MethodDiv").show();    
-            $("#PreviewDiv").show();    
-
-            var iUrl = imageMap[comms];
-
-            console.log(iUrl);
-
-            $("#PreviewImage").attr("src", iUrl);
-
-        }
-        else {
-            $("#MethodDiv").hide();    
-            $("#PreviewDiv").hide();    
-        }
-
-
-    });
+ 
 
     validateForm(function($form) {
         buttonSettings.enabled = $form.valid();
