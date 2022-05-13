@@ -463,14 +463,14 @@ function save() {
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
 
                 console.log($el.attr('type'));
-                console.log(setting.id);
-                console.log(setting.value);
-                console.log(value);
+                console.log('setting id - ' + setting.id);
+                console.log('setting.value - ' + setting.value);
+                console.log('value - ' + value);
+                console.log(JSON.stringify(value));
 
                 if($el.attr('type') === 'radio') {
 
                     console.log($el.is(":checked"));
-                    console.log(JSON.stringify(value));
 
                     if($el.is(":checked")) {
                         value[setting.id] = setting.value;
