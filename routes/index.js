@@ -3,10 +3,10 @@ const fs = require('fs');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
-let prop1;
-let prop2;
+const props = callTest();
 
-callTest();
+logger.info('props');
+logger.info(props);
 
 function test() {
 
@@ -25,7 +25,7 @@ function test() {
   
         logger.info('Get result');
         
-        let retVal = '';
+        let retVal = [];
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
             logger.info(property);
@@ -33,11 +33,15 @@ function test() {
             if (property.Name == 'DropDownJSON') {
 
               prop1 = property.value;
+
+              retVal.push(prop1);
+
   //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
 
             }
             if (property.Name == 'ImageJSON') {
               prop2 = property.value;
+              retVal.push(prop2);
 
     //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
 
@@ -86,8 +90,8 @@ exports.config = (req, res) => {
   let configTemplate2;
   let configTemplate3;
 
-  logger.info(prop1);
-  logger.info(prop2);
+  logger.info('props');
+  logger.info(props);
 
   const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
 
