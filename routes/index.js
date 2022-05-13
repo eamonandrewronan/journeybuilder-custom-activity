@@ -3,6 +3,48 @@ const fs = require('fs');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
+
+async function test() {
+	let promise = new Promise(function(resolve, reject) {
+    SFClient.deRow.get((err, res) => {
+      if (err) {
+
+        logger.info('Get err');
+
+        logger.error(err.message);
+      } else {
+  
+        logger.info('Get result');
+          
+        for (const result of res.body.Results) {
+          for (const property of result.Properties.Property) {
+            logger.info(property);
+
+            if (property.Name == 'DropDownJSON') {
+
+  //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
+
+            }
+            if (property.Name == 'ImageJSON') {
+
+    //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
+
+            }
+          }
+        }
+
+        resolve(result.Properties.Property);
+      }
+    });
+	});
+
+	let result = await promise; // wait till the promise resolves
+
+	logger.info.log(result);
+
+  return result;
+}
+
 /**
  * Render Config
  * @param req
@@ -13,12 +55,16 @@ exports.config = (req, res) => {
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
   const configTemplate = fs.readFileSync(file, 'utf-8');
-  var configTemplate2;
-  var configTemplate3;
+  let configTemplate2;
+  let configTemplate3;
 
   logger.info(configTemplate);
 
-  try {
+  let testVal = await test();
+
+  logger.info(testVal);
+
+/*  try {
     SFClient.deRow.get((err, res) => {
       if (err) {
 
@@ -28,11 +74,7 @@ exports.config = (req, res) => {
       } else {
   
         logger.info('Get result');
-  
-   //     logger.info(res);
-  //      logger.info(res.body);
-  //      logger.info(res.body.Results);
-        
+          
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
             logger.info(property);
@@ -56,11 +98,8 @@ exports.config = (req, res) => {
   logger.info('Get error');
 
   logger.error(error);  
-}
+} */
 
-  const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
-
-  res.json(config);
 };
 
 /**
