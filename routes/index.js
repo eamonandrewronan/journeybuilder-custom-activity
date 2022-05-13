@@ -36,7 +36,9 @@ function test() {
 
             if (property.Name == 'DropDownJSON') {
 
-              prop1 = property.value;
+              logger.info('Matched 1');
+
+              prop1 = property.Value;
 
               logger.info(prop1);
 
@@ -47,7 +49,10 @@ function test() {
 
             }
             if (property.Name == 'ImageJSON') {
-              prop2 = property.value;
+
+              logger.info('Matched 2');
+
+              prop2 = property.Value;
 
               logger.info(prop2);
 
