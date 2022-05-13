@@ -69,6 +69,8 @@ exports.config = (req, res) => {
 
   logger.info('Calling test');
 
+  let res = SFClient.deRow.get();
+
   let testVal = test();
 
   logger.info('Got test');
