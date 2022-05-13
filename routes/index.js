@@ -67,11 +67,11 @@ function test() {
 
         logger.info('Resolve');
         logger.info('props');
-        logger.info(JSON.stringify(props));
+        logger.info(props);
         logger.info(prop1);
         logger.info(prop2);
         logger.info('retVal');
-        logger.info(JSON.stringify(retVal));
+        logger.info(retVal);
                 
         resolve(retVal);
       }
@@ -89,7 +89,7 @@ async function callTest() {
 
     logger.info('Called test');
 
-		logger.info(JSON.stringify(dataFirst));
+		logger.info(dataFirst);
 
     return dataFirst;
 
@@ -115,8 +115,12 @@ exports.config = (req, res) => {
   logger.info('props');
   logger.info(props);
 
-  const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
+  configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , prop1);
+  configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , prop2);
 
+  const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
+
+  
   res.json(config);
 /*  try {
     SFClient.deRow.get((err, res) => {
