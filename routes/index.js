@@ -36,7 +36,7 @@ function test() {
               prop1 = property.value;
 
               retVal.push(prop1);
-              props.push(prop1);
+              this.props.push(prop1);
 
   //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
 
@@ -44,7 +44,7 @@ function test() {
             if (property.Name == 'ImageJSON') {
               prop2 = property.value;
               retVal.push(prop2);
-              props.push(prop2);
+              this.props.push(prop2);
 
     //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
 
@@ -53,7 +53,11 @@ function test() {
         }
 
         logger.info('Resolve');
-
+        logger.info('props');
+        logger.info(JSON.stringify(this.props));
+        logger.info('retVal');
+        logger.info(JSON.stringify(retVal));
+                
         resolve(retVal);
       }
     });
@@ -70,7 +74,7 @@ async function callTest() {
 
     logger.info('Called test');
 
-		logger.info(dataFirst);
+		logger.info(JSON.stringify(dataFirst));
 
     return dataFirst;
 
