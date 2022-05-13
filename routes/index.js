@@ -4,6 +4,8 @@ const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
 let props;
+let prop1;
+let prop2;
 callTest();
 
 logger.info('props');
@@ -30,11 +32,11 @@ function test() {
         let retVal = [];
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
-            logger.info(property);
+//            logger.info(property);
 
             if (property.Name == 'DropDownJSON') {
 
-              const prop1 = property.value;
+              prop1 = property.value;
 
               retVal.push(prop1);
               props.push(prop1);
@@ -43,7 +45,7 @@ function test() {
 
             }
             if (property.Name == 'ImageJSON') {
-              const prop2 = property.value;
+              prop2 = property.value;
               retVal.push(prop2);
               props.push(prop2);
 
@@ -56,6 +58,8 @@ function test() {
         logger.info('Resolve');
         logger.info('props');
         logger.info(JSON.stringify(props));
+        logger.info(prop1);
+        logger.info(prop2);
         logger.info('retVal');
         logger.info(JSON.stringify(retVal));
                 
