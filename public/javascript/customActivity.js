@@ -490,12 +490,18 @@ function save() {
                 console.log('key - ' + Object.keys(value)[0]);
                 console.log('idToStore - ' + idToStore);
                 console.log('valToStore - ' + valToStore);
+                console.log('index - ' + index);
 
                 if (Object.keys(value)[0] == idToStore) {
                     value = valToStore;
                     found = true;
                     console.log('found');
 
+                    let newVal = {[idToStore]:valToStore};
+
+                    payload['arguments'].execute.inArguments.splice(index);
+                    payload['arguments'].execute.inArguments.push(newVal);
+    
                 }
 
             })
