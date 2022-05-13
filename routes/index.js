@@ -3,7 +3,7 @@ const fs = require('fs');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
-let props = [];
+let props;
 callTest();
 
 logger.info('props');
@@ -26,6 +26,7 @@ function test() {
   
         logger.info('Get result');
         
+        props = [];
         let retVal = [];
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
@@ -36,7 +37,7 @@ function test() {
               prop1 = property.value;
 
               retVal.push(prop1);
-              this.props.push(prop1);
+              props.push(prop1);
 
   //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
 
@@ -44,7 +45,7 @@ function test() {
             if (property.Name == 'ImageJSON') {
               prop2 = property.value;
               retVal.push(prop2);
-              this.props.push(prop2);
+              props.push(prop2);
 
     //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
 
@@ -54,7 +55,7 @@ function test() {
 
         logger.info('Resolve');
         logger.info('props');
-        logger.info(JSON.stringify(this.props));
+        logger.info(JSON.stringify(props));
         logger.info('retVal');
         logger.info(JSON.stringify(retVal));
                 
