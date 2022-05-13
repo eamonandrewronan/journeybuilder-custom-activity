@@ -34,7 +34,7 @@ function test() {
 
             if (property.Name == 'DropDownJSON') {
 
-              prop1 = property.value;
+              const prop1 = property.value;
 
               retVal.push(prop1);
               props.push(prop1);
@@ -43,7 +43,7 @@ function test() {
 
             }
             if (property.Name == 'ImageJSON') {
-              prop2 = property.value;
+              const prop2 = property.value;
               retVal.push(prop2);
               props.push(prop2);
 
