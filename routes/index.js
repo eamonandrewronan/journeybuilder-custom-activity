@@ -91,6 +91,9 @@ exports.config = (req, res) => {
 
   logger.info(testVal);
 
+  const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
+
+  res.json(config);
 /*  try {
     SFClient.deRow.get((err, res) => {
       if (err) {
