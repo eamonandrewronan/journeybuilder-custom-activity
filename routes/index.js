@@ -126,7 +126,7 @@ exports.config = (req, res) => {
 
     logger.info(configTemplate3);
 
-    let config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
+    let config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
 
     logger.info(config);
 
