@@ -4,27 +4,31 @@ const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
 
-async function test() {
+function test() {
 
   logger.info('Enter test');
 
-  let promise = new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, reject) {
     SFClient.deRow.get((err, res) => {
       if (err) {
 
         logger.info('Get err');
 
         logger.error(err.message);
+
+        reject(err);
       } else {
   
         logger.info('Get result');
-          
+        
+        let retVal = '';
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
             logger.info(property);
 
             if (property.Name == 'DropDownJSON') {
 
+              let retVal = property.value;
   //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
 
             }
@@ -38,20 +42,32 @@ async function test() {
 
         logger.info('Resolve');
 
-        resolve(result.Properties.Property);
+        resolve(retVal);
       }
     });
 	});
 
-	let result = await promise; // wait till the promise resolves
-
-  logger.info('Got Result');
-
-	logger.info.log(result);
-
-  return result;
 }
 
+async function callTest() {
+
+  logger.info('callTest');
+
+  try {
+		let dataFirst = await test();
+
+    logger.info('Called test');
+
+		logger.info(dataFirst);
+
+    return dataFirst;
+
+	} catch (error) {
+    logger.info('Error test');
+		logger.info(error);
+	}
+
+}
 /**
  * Render Config
  * @param req
@@ -69,11 +85,9 @@ exports.config = (req, res) => {
 
   logger.info('Calling test');
 
-  let res2 = SFClient.deRow.get();
+  let testVal = callTest();
 
-  let testVal = test();
-
-  logger.info('Got test');
+  logger.info('Got testVal');
 
   logger.info(testVal);
 
