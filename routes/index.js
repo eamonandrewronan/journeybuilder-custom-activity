@@ -38,6 +38,8 @@ function test() {
 
               prop1 = property.value;
 
+              logger.info(prop1);
+
               retVal.push(prop1);
               props.push(prop1);
 
@@ -46,6 +48,9 @@ function test() {
             }
             if (property.Name == 'ImageJSON') {
               prop2 = property.value;
+
+              logger.info(prop2);
+
               retVal.push(prop2);
               props.push(prop2);
 
