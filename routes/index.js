@@ -123,9 +123,9 @@ exports.config = (req, res) => {
 
   configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , props[1]);
 
-//  logger.info(configTemplate3);
+  logger.info(configTemplate3);
 
-  const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
+  let config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
 
   logger.info(config);
 
