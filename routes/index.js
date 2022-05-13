@@ -60,7 +60,7 @@ exports.config = (req, res) => {
 
   logger.info(configTemplate);
 
-  let testVal = await test();
+  let testVal = test();
 
   logger.info(testVal);
 
