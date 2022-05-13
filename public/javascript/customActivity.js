@@ -470,6 +470,8 @@ function save() {
                 console.log('value.key - ' + value.key);
                 console.log('index - ' + index);
                 console.log(JSON.stringify(value));
+                
+                console.log(Object.keys(value));
 
                 if($el.attr('type') === 'radio') {
 
