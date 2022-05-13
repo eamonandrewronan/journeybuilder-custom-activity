@@ -488,10 +488,14 @@ function save() {
                 console.log(JSON.stringify(value));
                 
                 console.log('key - ' + Object.keys(value)[0]);
+                console.log('idToStore - ' + idToStore);
+                console.log('valToStore - ' + valToStore);
 
                 if (Object.keys(value)[0] == idToStore) {
                     value = valToStore;
                     found = true;
+                    console.log('found');
+
                 }
 
             })
