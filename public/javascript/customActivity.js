@@ -365,28 +365,9 @@ function initialize(data) {
 
             var iUrl = imageMap[comms];
 
-            $("#PreviewImage").attr("src", iUrl);
+            console.log(iUrl);
 
-  /*          switch (comms) {
-                case 'Welcome' :
-                    $("#PreviewImage").attr("src","images/image1.png");
-                    break;
-                case 'Renewal' :
-                    $("#PreviewImage").attr("src","images/image2.png");
-                    break;
-                case 'Membership Renewal' :
-                    $("#PreviewImage").attr("src","images/image3.png");
-                    break;
-                case 'Send Invoice' :
-                    $("#PreviewImage").attr("src","images/image4.png");
-                    break;
-                case 'Fundraising Pack' :
-                    $("#PreviewImage").attr("src","images/image5.png");
-                    break;
-                case 'Sponsorship Request' :
-                    $("#PreviewImage").attr("src","images/image6.png");
-                    break;
-            } */
+            $("#PreviewImage").attr("src", iUrl);
 
         }
         else {
