@@ -32,7 +32,7 @@ function test() {
         let retVal = [];
         for (const result of res.body.Results) {
           for (const property of result.Properties.Property) {
-//            logger.info(property);
+            logger.info(property);
 
             if (property.Name == 'DropDownJSON') {
 
