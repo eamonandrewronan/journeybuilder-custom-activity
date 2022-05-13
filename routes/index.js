@@ -115,19 +115,20 @@ exports.config = (req, res) => {
   logger.info('props');
   logger.info(props);
 
-  logger.info(configTemplate);
+  //logger.info(configTemplate);
 
   configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , props[0]);
 
-  logger.info(configTemplate2);
+//  logger.info(configTemplate2);
 
   configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , props[1]);
 
-  logger.info(configTemplate3);
+//  logger.info(configTemplate3);
 
   const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
 
-  
+  logger.info(config);
+
   res.json(config);
 /*  try {
     SFClient.deRow.get((err, res) => {
