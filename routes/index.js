@@ -108,15 +108,22 @@ exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
-  const configTemplate = fs.readFileSync(file, 'utf-8');
+  let configTemplate = fs.readFileSync(file, 'utf-8');
   let configTemplate2;
   let configTemplate3;
 
   logger.info('props');
   logger.info(props);
 
-  configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , prop1);
-  configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , prop2);
+  logger.info(configTemplate);
+
+  configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , props[0]);
+
+  logger.info(configTemplate2);
+
+  configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , props[1]);
+
+  logger.info(configTemplate3);
 
   const config = JSON.parse(configTemplate3.replace(/\$DOMAIN/g, domain));
 
