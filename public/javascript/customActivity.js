@@ -498,7 +498,7 @@ function save() {
 
             if (found == false) {
 
-                let newVal = {idToStore:valToStore};
+                let newVal = {[idToStore]:valToStore};
 
                 payload['arguments'].execute.inArguments.push(newVal);
             }
