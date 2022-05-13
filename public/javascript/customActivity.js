@@ -463,6 +463,9 @@ function save() {
             $.each(payload['arguments'].execute.inArguments, function(index, value) {
 
                 console.log($el.attr('type'));
+                console.log(setting.id);
+                console.log(setting.value);
+                console.log(value);
 
                 if($el.attr('type') === 'radio') {
 
