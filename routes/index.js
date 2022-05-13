@@ -69,7 +69,7 @@ exports.config = (req, res) => {
 
   logger.info('Calling test');
 
-  let res = SFClient.deRow.get();
+  let res2 = SFClient.deRow.get();
 
   let testVal = test();
 
