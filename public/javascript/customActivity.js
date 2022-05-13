@@ -499,7 +499,7 @@ function save() {
 
                     let newVal = {[idToStore]:valToStore};
 
-                    payload['arguments'].execute.inArguments.splice(index);
+                    payload['arguments'].execute.inArguments.splice(index, 1);
                     payload['arguments'].execute.inArguments.push(newVal);
     
                 }
