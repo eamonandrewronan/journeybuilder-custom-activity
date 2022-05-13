@@ -5,7 +5,10 @@ const logger = require('../utils/logger');
 
 
 async function test() {
-	let promise = new Promise(function(resolve, reject) {
+
+  logger.info('Enter test');
+
+  let promise = new Promise(function(resolve, reject) {
     SFClient.deRow.get((err, res) => {
       if (err) {
 
@@ -33,12 +36,16 @@ async function test() {
           }
         }
 
+        logger.info('Resolve');
+
         resolve(result.Properties.Property);
       }
     });
 	});
 
 	let result = await promise; // wait till the promise resolves
+
+  logger.info('Got Result');
 
 	logger.info.log(result);
 
@@ -60,7 +67,11 @@ exports.config = (req, res) => {
 
   logger.info(configTemplate);
 
+  logger.info('Calling test');
+
   let testVal = test();
+
+  logger.info('Got test');
 
   logger.info(testVal);
 
