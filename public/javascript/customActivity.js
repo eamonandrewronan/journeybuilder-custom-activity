@@ -466,6 +466,7 @@ function save() {
                 console.log('setting id - ' + setting.id);
                 console.log('setting.value - ' + setting.value);
                 console.log('value - ' + value);
+                console.log('index - ' + index);
                 console.log(JSON.stringify(value));
 
                 if($el.attr('type') === 'radio') {
