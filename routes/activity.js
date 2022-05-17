@@ -115,7 +115,7 @@ exports.execute = async (req, res) => {
           },
         ] };
 
-        logger.info('pDatata - ' + pData);
+        logger.info('pDatata - ' + JSON.stringify(pData));
 
       client.post( pData, (err, res) => {
         if (err) {
