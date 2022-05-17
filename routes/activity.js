@@ -20,7 +20,11 @@ exports.execute = async (req, res) => {
   try {
     let method;
 
-    logger.info('method - <' + data.inArguments[0].APIMethod + '>');
+    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
+    logger.info('DropdownOptions - <' + data.inArguments[0].DropdownOptions + '>');
+    logger.info('DropdownCommunications - <' + data.inArguments[0].DropdownCommunications + '>');
+    logger.info('APIMethod - <' + data.inArguments[0].APIMethod + '>');
+    logger.info('FTPMethod - <' + data.inArguments[0].FTPMethod + '>');
 
     logger.info('method equal ' + (data.inArguments[0].APIMethod == 'on'));
 
