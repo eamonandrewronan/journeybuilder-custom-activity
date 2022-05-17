@@ -2,6 +2,7 @@ const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 var jsforce = require('jsforce');
+const axios = require('axios').default;
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -27,6 +28,24 @@ exports.execute = async (req, res) => {
 
     var id = data.inArguments[0].contactIdentifier;
 
+    if (method == 'API') {
+
+      axios.post(process.env.API_URL, {
+        contactEmail: id,
+        vendor: data.inArguments[0].DropdownOptions,
+        communication :data.inArguments[0].DropdownCommunications
+  
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  
+    }
+
+    /*
     var apiUrl = process.env.API_URL;
     var apiUsername = process.env.API_USERNAME;
     var apiPassword = process.env.API_PASSWORD;
@@ -71,7 +90,7 @@ exports.execute = async (req, res) => {
 
       });
 
-    });
+    }); */
 
     await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
       {
