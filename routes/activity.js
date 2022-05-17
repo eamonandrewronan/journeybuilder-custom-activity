@@ -97,7 +97,7 @@ exports.execute = async (req, res) => {
 
       logger.info('Insert into log');
 
-      let data = {
+      let pData = {
         uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ exports.execute = async (req, res) => {
           },
         ] };
 
-      client.post( data, err, res) => {
+      client.post( pData, (err, res) => {
         if (err) {
   
           logger.info('Get err');
@@ -127,7 +127,7 @@ exports.execute = async (req, res) => {
           logger.info('Get result');
 
         }
-      };
+      });
     }
 
  /*     SFClient.insertDataSync((err, res) => {
