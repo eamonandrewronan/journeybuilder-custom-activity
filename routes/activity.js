@@ -97,7 +97,7 @@ exports.execute = async (req, res) => {
 
       logger.info('Insert into log');
 
-      client.post( {
+      let data = {
         uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
         headers: {
           'Content-Type': 'application/json',
@@ -113,8 +113,9 @@ exports.execute = async (req, res) => {
               Message: 'msg',
             },
           },
-        ] },
-      err, res) => {
+        ] };
+
+      client.post( data, err, res) => {
         if (err) {
   
           logger.info('Get err');
