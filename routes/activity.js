@@ -3,6 +3,7 @@ const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 var jsforce = require('jsforce');
 const axios = require('axios').default;
+const { v1: Uuidv1 } = require('uuid');
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -16,6 +17,8 @@ exports.execute = async (req, res) => {
 
   logger.info('execute');
   logger.info(JSON.stringify(data));
+
+  const uid = Uuidv1();
 
   try {
     let method;
@@ -56,7 +59,7 @@ exports.execute = async (req, res) => {
         await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
           {
             keys: {
-              UniqueId: data.inArguments[0].contactIdentifier,
+              UniqueId: uid,
             },
             values: {
               Contact: data.inArguments[0].contactIdentifier,
@@ -75,7 +78,7 @@ exports.execute = async (req, res) => {
       await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
         {
           keys: {
-            UniqueId: data.inArguments[0].contactIdentifier,
+            UniqueId: uid,
           },
           values: {
             Contact: data.inArguments[0].contactIdentifier,
@@ -138,7 +141,7 @@ exports.execute = async (req, res) => {
     await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
       {
         keys: {
-          UniqueId: data.inArguments[0].contactIdentifier,
+          UniqueId: uid,
         },
         values: {
           Contact: data.inArguments[0].contactIdentifier,
