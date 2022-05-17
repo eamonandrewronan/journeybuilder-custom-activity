@@ -102,6 +102,5 @@ module.exports = {
   client,
   saveData,
   insertData,
-  insertDataSync,
   deRow,
 };
