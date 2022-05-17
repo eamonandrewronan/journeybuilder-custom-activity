@@ -127,7 +127,7 @@ exports.execute = async (req, res) => {
         } else {
     
           logger.info('Get result');
-          logger.info('res - ' + res);
+          logger.info('res - ' + JSON.stringify(res));
 
         }
       });
