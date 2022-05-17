@@ -79,5 +79,6 @@ const deRow = etclient.dataExtensionRow({
 module.exports = {
   client,
   saveData,
+  insertData,
   deRow,
 };
