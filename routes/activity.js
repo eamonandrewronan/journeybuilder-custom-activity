@@ -2,8 +2,27 @@ const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 var jsforce = require('jsforce');
+const FuelRest = require('fuel-rest');
+
 const axios = require('axios').default;
 const { v1: Uuidv1 } = require('uuid');
+
+const options = {
+  auth: {
+    clientId: process.env.SFMC_CLIENT_ID,
+    clientSecret: process.env.SFMC_CLIENT_SECRET,
+    authOptions: {
+      authVersion: 2,
+      accountId: process.env.SFMC_ACCOUNT_ID,
+    },
+    authUrl: `https://${process.env.SFMC_SUBDOMAIN}.auth.marketingcloudapis.com/v2/token`,
+  },
+  origin: `https://${process.env.SFMC_SUBDOMAIN}.rest.marketingcloudapis.com/`,
+  globalReqOptions: {
+  },
+};
+
+const client = new FuelRest(options);
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -78,7 +97,39 @@ exports.execute = async (req, res) => {
 
       logger.info('Insert into log');
 
-      SFClient.insertDataSync((err, res) => {
+      client.post({
+        uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        json: true,
+        body: [
+          {
+            keys: {
+              UniqueId: '1234',
+            },
+            values: {
+              Contact: 'liam.collerton@test.com',
+              Message: 'msg',
+            },
+          },
+        ],
+      },err, res) => {
+        if (err) {
+  
+          logger.info('Get err');
+  
+          logger.error(err);
+  
+        } else {
+    
+          logger.info('Get result');
+
+        }
+      };
+    }
+
+ /*     SFClient.insertDataSync((err, res) => {
         if (err) {
   
           logger.info('Get err');
@@ -92,7 +143,7 @@ exports.execute = async (req, res) => {
 
         }
       });
-    }
+    }*/
 
 /*      await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
         [
