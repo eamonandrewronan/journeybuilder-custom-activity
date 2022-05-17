@@ -51,11 +51,36 @@ exports.execute = async (req, res) => {
   
       })
       .then(function (response) {
-        logger.info(response);
+//        logger.info(response);
+
+        await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
+          {
+            keys: {
+              SubscriberKey: data.inArguments[0].contactIdentifier,
+            },
+            values: {
+              Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
+            },
+          },
+        ]);
+    
       })
       .catch(function (error) {
         logger.error(error);
       });
+  
+    }
+    else {
+      await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
+        {
+          keys: {
+            SubscriberKey: data.inArguments[0].contactIdentifier,
+          },
+          values: {
+            Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
+          },
+        },
+      ]);
   
     }
 
@@ -106,16 +131,6 @@ exports.execute = async (req, res) => {
 
     }); */
 
-    await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
-      {
-        keys: {
-          SubscriberKey: data.inArguments[0].contactIdentifier,
-        },
-        values: {
-          Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
-        },
-      },
-    ]);
   } catch (error) {
 
     await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
