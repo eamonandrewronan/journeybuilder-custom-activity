@@ -70,6 +70,7 @@ const saveData = async (externalKey, data) => client.post({
     body: data,
   });
 
+  /*
   const insertDataSync = client.post({
       uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
       headers: {
@@ -89,7 +90,7 @@ const saveData = async (externalKey, data) => client.post({
       ],
     });
   
-  
+  */
 
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
