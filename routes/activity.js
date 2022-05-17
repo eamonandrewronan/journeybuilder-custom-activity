@@ -20,6 +20,11 @@ exports.execute = async (req, res) => {
   try {
     let method;
 
+    logger.info('method - <' + data.inArguments[0].APIMethod + '>');
+
+    logger.info('method equal ' + (data.inArguments[0].APIMethod == 'on'));
+
+
     if (data.inArguments[0].APIMethod == 'on') {
       method = 'API';
     } else {
