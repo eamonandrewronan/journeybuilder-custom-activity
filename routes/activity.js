@@ -28,6 +28,8 @@ exports.execute = async (req, res) => {
 
     var id = data.inArguments[0].contactIdentifier;
 
+    logger.info('method - ' + method);
+
     if (method == 'API') {
 
       axios.post(process.env.API_URL, {
@@ -37,10 +39,10 @@ exports.execute = async (req, res) => {
   
       })
       .then(function (response) {
-        console.log(response);
+        logger.info(response);
       })
       .catch(function (error) {
-        console.log(error);
+        logger.error(error);
       });
   
     }
