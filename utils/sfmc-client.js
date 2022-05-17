@@ -69,7 +69,28 @@ const saveData = async (externalKey, data) => client.post({
     json: true,
     body: data,
   });
+
+  const insertDataSync = client.post({
+      uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      json: true,
+      body: [
+        {
+          keys: {
+            UniqueId: '1234',
+          },
+          values: {
+            Contact: 'liam.collerton@test.com',
+            Message: 'msg',
+          },
+        },
+      ],
+    });
   
+  
+
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
   props: ['DropDownJSON', 'ImageJSON']
@@ -80,5 +101,6 @@ module.exports = {
   client,
   saveData,
   insertData,
+  insertDataSync,
   deRow,
 };

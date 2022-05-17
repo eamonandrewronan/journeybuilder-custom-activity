@@ -78,7 +78,23 @@ exports.execute = async (req, res) => {
 
       logger.info('Insert into log');
 
-      await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
+      SFClient.insertDataSync((err, res) => {
+        if (err) {
+  
+          logger.info('Get err');
+  
+          logger.error(err.message);
+  
+          reject(err);
+        } else {
+    
+          logger.info('Get result');
+
+        }
+      });
+    }
+
+/*      await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
         [
         {
           keys: {
@@ -89,9 +105,9 @@ exports.execute = async (req, res) => {
             Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
           },
         },
-      ]);
+      ]);*/
   
-    }
+    
 
     /*
     var apiUrl = process.env.API_URL;
@@ -142,7 +158,7 @@ exports.execute = async (req, res) => {
 
   } catch (error) {
 
-    await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, [
+/*    await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, [
       {
         keys: {
           UniqueId: uid,
@@ -153,7 +169,7 @@ exports.execute = async (req, res) => {
         },
       },
     ]);
-
+*/
     logger.error(error);
   }
 
