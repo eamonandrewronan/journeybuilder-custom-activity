@@ -16,23 +16,23 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
 
   logger.info('execute');
-  logger.info(JSON.stringify(data));
+//  logger.info(JSON.stringify(data));
 
   const uid = Uuidv1();
 
   try {
     let method;
 
-    logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
-    logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
+//    logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
+//    logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
 
-    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
-    logger.info('DropdownOptions - <' + data.inArguments[4].DropdownOptions + '>');
-    logger.info('DropdownCommunications - <' + data.inArguments[5].DropdownCommunications + '>');
-    logger.info('APIMethod - <' + data.inArguments[6].APIMethod + '>');
-    logger.info('FTPMethod - <' + data.inArguments[7].FTPMethod + '>');
+//    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
+//    logger.info('DropdownOptions - <' + data.inArguments[4].DropdownOptions + '>');
+//    logger.info('DropdownCommunications - <' + data.inArguments[5].DropdownCommunications + '>');
+//    logger.info('APIMethod - <' + data.inArguments[6].APIMethod + '>');
+//    logger.info('FTPMethod - <' + data.inArguments[7].FTPMethod + '>');
 
-    logger.info('method equal ' + (data.inArguments[6].APIMethod == 'on'));
+//    logger.info('method equal ' + (data.inArguments[6].APIMethod == 'on'));
 
 
     if (data.inArguments[6].APIMethod == 'on') {
@@ -75,6 +75,9 @@ exports.execute = async (req, res) => {
   
     }
     else {
+
+      logger.info('Insert into log');
+
       await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
         [
         {
