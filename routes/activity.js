@@ -54,9 +54,9 @@ exports.execute = async (req, res) => {
   
       })
       .then(function (response) {
-//        logger.info(response);
+        logger.info(response);
 
-        await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
+  /*      await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
           {
             keys: {
               UniqueId: uid,
@@ -66,7 +66,7 @@ exports.execute = async (req, res) => {
               Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
             },
           },
-        ]);
+        ]); */
     
       })
       .catch(function (error) {
