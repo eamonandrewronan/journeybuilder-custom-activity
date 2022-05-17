@@ -23,16 +23,16 @@ exports.execute = async (req, res) => {
     logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
     logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
 
-    logger.info('contactIdentifier - <' + data.inArguments.contactIdentifier + '>');
-    logger.info('DropdownOptions - <' + data.inArguments.DropdownOptions + '>');
-    logger.info('DropdownCommunications - <' + data.inArguments.DropdownCommunications + '>');
-    logger.info('APIMethod - <' + data.inArguments.APIMethod + '>');
-    logger.info('FTPMethod - <' + data.inArguments.FTPMethod + '>');
+    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
+    logger.info('DropdownOptions - <' + data.inArguments[4].DropdownOptions + '>');
+    logger.info('DropdownCommunications - <' + data.inArguments[5].DropdownCommunications + '>');
+    logger.info('APIMethod - <' + data.inArguments[6].APIMethod + '>');
+    logger.info('FTPMethod - <' + data.inArguments[7].FTPMethod + '>');
 
-    logger.info('method equal ' + (data.inArguments.APIMethod == 'on'));
+    logger.info('method equal ' + (data.inArguments[6].APIMethod == 'on'));
 
 
-    if (data.inArguments[0].APIMethod == 'on') {
+    if (data.inArguments[6].APIMethod == 'on') {
       method = 'API';
     } else {
       method = 'FTP';
@@ -46,8 +46,8 @@ exports.execute = async (req, res) => {
 
       axios.post(process.env.API_URL, {
         contactEmail: id,
-        vendor: data.inArguments[0].DropdownOptions,
-        communication :data.inArguments[0].DropdownCommunications
+        vendor: data.inArguments[4].DropdownOptions,
+        communication :data.inArguments[5].DropdownCommunications
   
       })
       .then(function (response) {
