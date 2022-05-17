@@ -75,7 +75,8 @@ exports.execute = async (req, res) => {
   
     }
     else {
-      await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
+      await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
+        [
         {
           keys: {
             UniqueId: uid,
@@ -138,7 +139,7 @@ exports.execute = async (req, res) => {
 
   } catch (error) {
 
-    await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
+    await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, [
       {
         keys: {
           UniqueId: uid,

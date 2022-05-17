@@ -55,6 +55,21 @@ const saveData = async (externalKey, data) => client.post({
   body: data,
 });
 
+  /**
+ * Save data in DE
+ * @param externalKey
+ * @param data
+ * @returns {?Promise}
+ */
+   const insertData = async (externalKey, data) => client.post({
+    uri: `/hub/v1/dataevents/key:${externalKey}/rowset`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    json: true,
+    body: data,
+  });
+  
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
   props: ['DropDownJSON', 'ImageJSON']
