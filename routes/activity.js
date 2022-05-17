@@ -115,6 +115,8 @@ exports.execute = async (req, res) => {
           },
         ] };
 
+        logger.info('pDatata - ' + pData);
+
       client.post( pData, (err, res) => {
         if (err) {
   
@@ -125,6 +127,7 @@ exports.execute = async (req, res) => {
         } else {
     
           logger.info('Get result');
+          logger.info('res - ' + res);
 
         }
       });
