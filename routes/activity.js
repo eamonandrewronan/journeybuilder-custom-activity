@@ -112,7 +112,7 @@ exports.execute = async (req, res) => {
           SubscriberKey: data.inArguments[0].contactIdentifier,
         },
         values: {
-          Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method,
+          Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
         },
       },
     ]);
