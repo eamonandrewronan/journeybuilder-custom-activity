@@ -20,7 +20,8 @@ exports.execute = async (req, res) => {
   try {
     let method;
 
-    logger.info(JSON.stringify(data.inArguments[0]));
+    logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
+    logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
 
     logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
     logger.info('DropdownOptions - <' + data.inArguments[0].DropdownOptions + '>');
