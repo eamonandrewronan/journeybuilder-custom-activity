@@ -167,6 +167,19 @@ exports.validate = (req, res) => {
 
   logger.info('validate');
 
+  axios.post(process.env.API_URL, {
+    contactEmail: 'liam.collerton@giveclarity.org',
+    vendor: 'vendorName',
+    communication :'communicationName'
+
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
 
   res.status(200).send({
     status: 'ok',
