@@ -23,13 +23,13 @@ exports.execute = async (req, res) => {
     logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
     logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
 
-    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
-    logger.info('DropdownOptions - <' + data.inArguments[0].DropdownOptions + '>');
-    logger.info('DropdownCommunications - <' + data.inArguments[0].DropdownCommunications + '>');
-    logger.info('APIMethod - <' + data.inArguments[0].APIMethod + '>');
-    logger.info('FTPMethod - <' + data.inArguments[0].FTPMethod + '>');
+    logger.info('contactIdentifier - <' + data.inArguments.contactIdentifier + '>');
+    logger.info('DropdownOptions - <' + data.inArguments.DropdownOptions + '>');
+    logger.info('DropdownCommunications - <' + data.inArguments.DropdownCommunications + '>');
+    logger.info('APIMethod - <' + data.inArguments.APIMethod + '>');
+    logger.info('FTPMethod - <' + data.inArguments.FTPMethod + '>');
 
-    logger.info('method equal ' + (data.inArguments[0].APIMethod == 'on'));
+    logger.info('method equal ' + (data.inArguments.APIMethod == 'on'));
 
 
     if (data.inArguments[0].APIMethod == 'on') {
