@@ -56,9 +56,10 @@ exports.execute = async (req, res) => {
         await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
           {
             keys: {
-              SubscriberKey: data.inArguments[0].contactIdentifier,
+              UniqueId: data.inArguments[0].contactIdentifier,
             },
             values: {
+              Contact: data.inArguments[0].contactIdentifier,
               Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
             },
           },
@@ -74,9 +75,10 @@ exports.execute = async (req, res) => {
       await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
         {
           keys: {
-            SubscriberKey: data.inArguments[0].contactIdentifier,
+            UniqueId: data.inArguments[0].contactIdentifier,
           },
           values: {
+            Contact: data.inArguments[0].contactIdentifier,
             Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
           },
         },
@@ -136,9 +138,10 @@ exports.execute = async (req, res) => {
     await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
       {
         keys: {
-          SubscriberKey: data.inArguments[0].contactIdentifier,
+          UniqueId: data.inArguments[0].contactIdentifier,
         },
         values: {
+          Contact: data.inArguments[0].contactIdentifier,
           Message: error,
         },
       },
