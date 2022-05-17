@@ -106,11 +106,11 @@ exports.execute = async (req, res) => {
         body: [
           {
             keys: {
-              UniqueId: '1234',
+              UniqueId: uid,
             },
             values: {
-              Contact: 'liam.collerton@test.com',
-              Message: 'msg',
+              Contact: id,
+              Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications,
             },
           },
         ] };
