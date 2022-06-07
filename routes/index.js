@@ -120,7 +120,7 @@ exports.config = (req, res) => {
 
     configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , props[0]);
 
-  //  logger.info(configTemplate2);
+    logger.info(configTemplate2);
 
     configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , props[1]);
 
@@ -136,7 +136,7 @@ exports.config = (req, res) => {
 
   logger.info('Get error');
 
-  logger.error(error);  
+  logger.error(JSON.stringify(error));  
 }
 
   /*  try {
