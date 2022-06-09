@@ -106,9 +106,10 @@ exports.execute = async (req, res) => {
         body: [
           {
             keys: {
-              Id: id,
+              DirectMailId: id,
             },
             values: {
+              Id: id,
               Vendor: data.inArguments[4].DropdownOptions,
               Communication: data.inArguments[5].DropdownCommunications,
               TrackingCode: data.inArguments[7].TCode,
