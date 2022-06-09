@@ -101,18 +101,14 @@ function test() {
                 innerImage = imageMap[property.Value];
               }
               else {
-                innerImage=[];
+                innerImage={};
                 imageMap[property.Value] = innerImage;
               }
 
 
             }
             if (property.Name == 'PreviewURL') {
-              let newVal = {};
-              newVal.Name = property.Value;
-              newVal.Value = property.Value;
-              
-              innerImage.push(newVal);
+              innerImage = property.Value;
             }
           }
         }
