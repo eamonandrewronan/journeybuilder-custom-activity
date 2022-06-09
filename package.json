@@ -1,6 +1,9 @@
 {
   "name": "custom-activity",
   "version": "0.0.1",
+  "engines": {
+    "node": "16.14.l"
+  },
   "description": "",
   "private": true,
   "main": "app.js",
