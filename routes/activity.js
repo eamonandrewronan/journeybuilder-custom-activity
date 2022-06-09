@@ -50,6 +50,8 @@ exports.execute = async (req, res) => {
 //    logger.info('DropdownCommunications - <' + data.inArguments[5].DropdownCommunications + '>');
 //    logger.info('APIMethod - <' + data.inArguments[6].APIMethod + '>');
 //    logger.info('FTPMethod - <' + data.inArguments[7].FTPMethod + '>');
+      logger.info('TCode - <' + data.inArguments[8].TCode + '>');
+      logger.info('Other - <' + data.inArguments[9].Other + '>');
 
 //    logger.info('method equal ' + (data.inArguments[6].APIMethod == 'on'));
 
@@ -112,8 +114,8 @@ exports.execute = async (req, res) => {
               Id: id,
               Vendor: data.inArguments[4].DropdownOptions,
               Communication: data.inArguments[5].DropdownCommunications,
-              TrackingCode: data.inArguments[7].TCode,
-              OtherInformation: data.inArguments[8].Other,
+              TrackingCode: data.inArguments[8].TCode,
+              OtherInformation: data.inArguments[9].Other,
             },
           },
         ] };
