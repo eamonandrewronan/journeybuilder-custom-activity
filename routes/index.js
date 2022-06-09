@@ -79,7 +79,6 @@ function test() {
               else {
                 inner=[];
                 commsMap[Vendor] = inner;
-                inner = commsMap[Vendor];
               }
             }
             if (property.Name == 'Communications') {
