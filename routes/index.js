@@ -72,11 +72,12 @@ function test() {
               logger.info(JSON.stringify(commsMap));
               logger.info(commsMap[Vendor]);
 
-              if (commsMap[Vendor] == null) {
-                inner=[];
-                commsMap[Vendor] = inner;
+              if (commsMap.hasOwnProperty(Vendor))
+                inner = commsMap[Vendor];
               }
               else {
+                inner=[];
+                commsMap[Vendor] = inner;
                 inner = commsMap[Vendor];
               }
             }
