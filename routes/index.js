@@ -30,15 +30,16 @@ function test() {
         
         props = [];
         let retVal = [];
-        let commsMap;
+        let commsMap={};
+        let inner;
 
         for (const result of res.body.Results) {
-          logger.info(result);
+          logger.info(result.Properties);
 
           for (const property of result.Properties.Property) {
             logger.info(property);
 
-            if (property.Name == 'DropDownJSON') {
+/*            if (property.Name == 'DropDownJSON') {
 
               logger.info('Matched 1');
 
@@ -65,14 +66,32 @@ function test() {
 
     //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
 
-            }
+            } */
             if (property.Name == 'Vendor') {
 
+              logger.info(JSON.stringify(commsMap));
+              logger.info(commsMap[Vendor]);
+
+              if (commsMap[Vendor] == null) {
+                inner=[];
+                commsMap[Vendor] = inner;
+              }
+              else {
+                inner = commsMap[Vendor];
+              }
+            }
+            if (property.Name == 'Communications') {
+              let newVal = {};
+              newVal.Name = property.Value;
+              newVal.Value = property.Value;
+              
+              inner.push(newVal);
             }
           }
         }
 
         logger.info('Resolve');
+        logger.info(commsMap);
         logger.info('props');
         logger.info(props);
         logger.info(prop1);
