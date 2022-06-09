@@ -93,12 +93,9 @@ function test() {
 
         logger.info('Resolve');
         logger.info(commsMap);
+        props.push(JSON.stringify(commsMap));
         logger.info('props');
         logger.info(props);
-        logger.info(prop1);
-        logger.info(prop2);
-        logger.info('retVal');
-        logger.info(retVal);
                 
         resolve(retVal);
       }
