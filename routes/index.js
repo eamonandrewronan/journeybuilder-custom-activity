@@ -70,15 +70,15 @@ function test() {
             if (property.Name == 'Vendor') {
 
               logger.info(JSON.stringify(commsMap));
-              logger.info(commsMap[Vendor]);
 
-              if (commsMap.hasOwnProperty(Vendor))
+              if (commsMap.hasOwnProperty(property.Value))
               {
-                inner = commsMap[Vendor];
+                logger.info(commsMap[property.Value]);
+                inner = commsMap[property.Value];
               }
               else {
                 inner=[];
-                commsMap[Vendor] = inner;
+                commsMap[property.Value] = inner;
               }
             }
             if (property.Name == 'Communications') {
