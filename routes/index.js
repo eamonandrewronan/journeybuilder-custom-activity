@@ -31,7 +31,9 @@ function test() {
         props = [];
         let retVal = [];
         let commsMap={};
+        let imageMap={};
         let inner;
+        let innerImage;
 
         for (const result of res.body.Results) {
           logger.info(result.Properties);
@@ -92,6 +94,25 @@ function test() {
               newVal.Value = property.Value;
               
               inner.push(newVal);
+
+              if (imageMap.hasOwnProperty(property.Value))
+              {
+                logger.info(imageMap[property.Value]);
+                innerImage = imageMap[property.Value];
+              }
+              else {
+                innerImage=[];
+                imageMap[property.Value] = innerImage;
+              }
+
+
+            }
+            if (property.Name == 'PreviewURL') {
+              let newVal = {};
+              newVal.Name = property.Value;
+              newVal.Value = property.Value;
+              
+              innerImage.push(newVal);
             }
           }
         }
@@ -99,6 +120,7 @@ function test() {
         logger.info('Resolve');
         logger.info(commsMap);
         props.push('{"commsMap":' + JSON.stringify(commsMap) + '}');
+        props.push('{"imageMap":' + JSON.stringify(imageMap) + '}');
         logger.info('props');
         logger.info(props);
                 
