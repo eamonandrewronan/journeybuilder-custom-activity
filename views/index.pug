@@ -39,12 +39,13 @@ block content
               label#API.slds-radio__label(for="APIMethod") API
               input#APIMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method' disabled)
         .slds-form-element#TextDiv.slds-m-top_large.slds-box
-          label#Code.Label.slds-form-element__label(for="TrackingCode") Tracking Code
           .slds-form-element__control
-            input(type="text" name="TrackingCode" id="TrackingCode")
-          label#Code.Label.slds-form-element__label(for="Other") Other Information
-          .slds-form-element__control
-            textarea(name="Other", cols="30", rows="10") 
+            Div
+              label#Code.Label.slds-form-element__label(for="TrackingCode") Tracking Code
+              input#TCode.js-activity-setting(type="text" name="TrackingCode" id="TrackingCode")
+            Div
+              label#Code.Label.slds-form-element__label(for="Other") Other Information
+              textarea(name="Other", cols="30", rows="10") 
         .slds-form-element#PreviewDiv.slds-m-top_large.slds-box
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
           .slds-form-element__control.slds-m-top_medium
