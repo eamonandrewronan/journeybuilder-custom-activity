@@ -73,6 +73,7 @@ function test() {
               logger.info(commsMap[Vendor]);
 
               if (commsMap.hasOwnProperty(Vendor))
+              {
                 inner = commsMap[Vendor];
               }
               else {
