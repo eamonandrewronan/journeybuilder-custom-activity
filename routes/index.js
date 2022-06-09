@@ -41,6 +41,8 @@ function test() {
           for (const property of result.Properties.Property) {
             logger.info(property);
 
+            let commsName;
+
 /*            if (property.Name == 'DropDownJSON') {
 
               logger.info('Matched 1');
@@ -71,11 +73,11 @@ function test() {
             } */
             if (property.Name == 'Vendor') {
 
-              logger.info(JSON.stringify(commsMap));
+   //           logger.info(JSON.stringify(commsMap));
 
               if (commsMap.hasOwnProperty(property.Value))
               {
-                logger.info(commsMap[property.Value]);
+     //           logger.info(commsMap[property.Value]);
                 inner = commsMap[property.Value];
               }
               else {
@@ -95,6 +97,8 @@ function test() {
               
               inner.push(newVal);
 
+              commsName = property.Value;
+
               if (imageMap.hasOwnProperty(property.Value))
               {
                 logger.info(imageMap[property.Value]);
@@ -108,7 +112,7 @@ function test() {
 
             }
             if (property.Name == 'PreviewURL') {
-              innerImage = property.Value;
+              imageMap[commsName] = property.Value;              
             }
           }
         }
