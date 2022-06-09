@@ -32,7 +32,10 @@ block content
         .slds-form-element#TextDiv.slds-m-top_large.slds-box
           label#Code.Label.slds-form-element__label(for="TrackingCode") Tracking Code
           .slds-form-element__control
-            input(type="text" name="TrackingCode" id="TrackingCode")
+            input#TrackingCode.js-activity-setting(type="text" name="TrackingCode" id="TrackingCode")
+          label#Code.Label.slds-form-element__label(for="OtherInformation") Other Information
+          .slds-form-element__control
+            textarea#OtherInformation.js-activity-setting(name="OtherInformation" id="OtherInformation")
         .slds-form-element#MethodDiv.slds-m-top_large.slds-box
           label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
           .slds-form-element__control.slds-m-top_medium
