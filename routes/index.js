@@ -38,10 +38,10 @@ function test() {
         for (const result of res.body.Results) {
           logger.info(result.Properties);
 
+          let commsName;
+
           for (const property of result.Properties.Property) {
             logger.info(property);
-
-            let commsName;
 
 /*            if (property.Name == 'DropDownJSON') {
 
