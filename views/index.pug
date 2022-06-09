@@ -29,6 +29,15 @@ block content
               select#DropdownCommunications.slds-select.js-activity-setting(name='dropdownCommunications' )
                 each dropdownCommunication in dropdownCommunications
                   option(value=dropdownCommunication.value)= dropdownCommunication.name
+        .slds-form-element#MethodDiv.slds-m-top_large.slds-box
+          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
+          .slds-form-element__control.slds-m-top_medium
+            Div
+              label#FTP.slds-radio__label(for="FTPMethod") FTP
+              input#FTPMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method' checked)
+            Div
+              label#API.slds-radio__label(for="APIMethod") API
+              input#APIMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method' disabled)
         .slds-form-element#TextDiv.slds-m-top_large.slds-box
           label#Code.Label.slds-form-element__label(for="TrackingCode") Tracking Code
           .slds-form-element__control
@@ -36,16 +45,6 @@ block content
           label#Code.Label.slds-form-element__label(for="Other") Other Information
           .slds-form-element__control
             textarea(name="Other", cols="30", rows="10") 
-        .slds-form-element#MethodDiv.slds-m-top_large.slds-box
-          label#MethodLabel.Label.slds-form-element__label(for="SwitchMethod") Method
-          .slds-form-element__control.slds-m-top_medium
-            Div
-              label#API.slds-radio__label(for="APIMethod") API
-              input#APIMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method' checked)
-            Div
-              label#FTP.slds-radio__label(for="FTPMethod") FTP
-              input#FTPMethod.js-activity-setting.slds-p-around_xx-large.slds-m-left_large(type='radio', name='Method')
-
         .slds-form-element#PreviewDiv.slds-m-top_large.slds-box
           label#MethodLabel.Label.slds-form-element__label(for="Preview") Preview
           .slds-form-element__control.slds-m-top_medium
