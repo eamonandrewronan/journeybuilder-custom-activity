@@ -30,7 +30,11 @@ function test() {
         
         props = [];
         let retVal = [];
+        let commsMap;
+
         for (const result of res.body.Results) {
+          logger.info(result);
+
           for (const property of result.Properties.Property) {
             logger.info(property);
 
@@ -60,6 +64,9 @@ function test() {
               props.push(prop2);
 
     //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
+
+            }
+            if (property.Name == 'Vendor') {
 
             }
           }
