@@ -42,7 +42,7 @@ exports.execute = async (req, res) => {
   try {
     let method;
 
-//    logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
+    logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
 //    logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
 
 //    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
@@ -106,11 +106,13 @@ exports.execute = async (req, res) => {
         body: [
           {
             keys: {
-              UniqueId: uid,
+              Id: id,
             },
             values: {
-              Contact: id,
-              Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications,
+              Vendor: data.inArguments[4].DropdownOptions,
+              Communication: data.inArguments[5].DropdownCommunications,
+              TrackingCode: data.inArguments[7].TCode,
+              OtherInformation: data.inArguments[8].Other,
             },
           },
         ] };
