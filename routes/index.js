@@ -78,6 +78,11 @@ function test() {
               }
               else {
                 inner=[];
+                let newVal = {};
+                newVal.Name = 'Select Communication';
+                newVal.Value = 'Select Communication';
+                
+                inner.push(newVal);
                 commsMap[property.Value] = inner;
               }
             }
@@ -93,7 +98,7 @@ function test() {
 
         logger.info('Resolve');
         logger.info(commsMap);
-        props.push(JSON.stringify(commsMap));
+        props.push('{"commsMap":' + JSON.stringify(commsMap) + '}');
         logger.info('props');
         logger.info(props);
                 
