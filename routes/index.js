@@ -99,20 +99,17 @@ function test() {
 
               commsName = property.Value;
 
-              if (imageMap.hasOwnProperty(property.Value))
-              {
-                logger.info(imageMap[property.Value]);
-                innerImage = imageMap[property.Value];
-              }
-              else {
-                innerImage={};
-                imageMap[property.Value] = innerImage;
-              }
-
-
             }
             if (property.Name == 'PreviewURL') {
-              imageMap[commsName] = property.Value;              
+
+              if (imageMap.hasOwnProperty(commsName))
+              {
+//                innerImage = imageMap[property.Value];
+              }
+              else {
+                imageMap[commsName] = property.Value;              
+              }
+
             }
           }
         }
