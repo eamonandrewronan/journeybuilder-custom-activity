@@ -85,7 +85,7 @@ function onRender() {
         for (var index = 0; index < data.length; index++) {
            console.log(data[index]);
 
-           $('#DropdownCommunications').append('<option value="' + data[index].name + '">' + data[index].value + '</option>');
+           $('#DropdownCommunications').append('<option value="' + data[index].Name + '">' + data[index].Value + '</option>');
         }
 
         if (vendor != 'Select Vendor') {
