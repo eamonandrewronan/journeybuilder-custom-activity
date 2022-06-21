@@ -108,7 +108,7 @@ exports.execute = async (req, res) => {
         body: [
           {
             keys: {
-              DirectMailId: id,
+              DirectMailId: uid,
             },
             values: {
               Id: id,
