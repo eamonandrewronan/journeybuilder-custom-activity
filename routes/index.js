@@ -3,6 +3,7 @@ const fs = require('fs');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 
+// Retrieve the config data from the Data Extension
 let props;
 let prop1;
 let prop2;
