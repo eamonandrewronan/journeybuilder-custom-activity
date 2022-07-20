@@ -46,8 +46,6 @@ function onRender() {
 
     console.log('OnRender');
 
-//    console.log($("#DropdownCommunications"));
-
     console.log(JSON.stringify(commsMap));
     console.log(JSON.stringify(imageMap));
 
@@ -276,13 +274,6 @@ function save() {
 
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
-
-  //      payload['arguments'].execute.inArguments = [
-  //          {
-   //             "contactKey": "{{Contact.Key}}",
-    //            "contactEmail": "{{Contact.Attribute.Contact_DE_LC.Email}}"
-    //        }
-   //     ];
 
         $('.js-activity-setting').each(function () {
             const $el = $(this);

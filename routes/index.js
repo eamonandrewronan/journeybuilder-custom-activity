@@ -8,7 +8,7 @@ let prop1;
 let prop2;
 callTest();
 
-logger.info('props');
+logger.info('index:props');
 logger.info(props);
 
 function test() {
@@ -43,41 +43,10 @@ function test() {
           for (const property of result.Properties.Property) {
             logger.info(property);
 
-/*            if (property.Name == 'DropDownJSON') {
-
-              logger.info('Matched 1');
-
-              prop1 = property.Value;
-
-              logger.info(prop1);
-
-              retVal.push(prop1);
-              props.push(prop1);
-
-  //            configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
-
-            }
-            if (property.Name == 'ImageJSON') {
-
-              logger.info('Matched 2');
-
-              prop2 = property.Value;
-
-              logger.info(prop2);
-
-              retVal.push(prop2);
-              props.push(prop2);
-
-    //          configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
-
-            } */
             if (property.Name == 'Vendor') {
-
-   //           logger.info(JSON.stringify(commsMap));
 
               if (commsMap.hasOwnProperty(property.Value))
               {
-     //           logger.info(commsMap[property.Value]);
                 inner = commsMap[property.Value];
               }
               else {
@@ -160,10 +129,9 @@ exports.config = (req, res) => {
   let configTemplate2;
   let configTemplate3;
 
-  logger.info('props');
+  logger.info('config:props');
   logger.info(props);
 
-  //logger.info(configTemplate);
   try {
 
     configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , props[0]);
@@ -187,42 +155,6 @@ exports.config = (req, res) => {
   logger.error(JSON.stringify(error));  
 }
 
-  /*  try {
-    SFClient.deRow.get((err, res) => {
-      if (err) {
-
-        logger.info('Get err');
-
-        logger.error(err.message);
-      } else {
-  
-        logger.info('Get result');
-          
-        for (const result of res.body.Results) {
-          for (const property of result.Properties.Property) {
-            logger.info(property);
-
-            if (property.Name == 'DropDownJSON') {
-
-              configTemplate2 = configTemplate.replace('%%COMMSCONFIG%%' , property.value);
-
-            }
-            if (property.Name == 'ImageJSON') {
-
-              configTemplate3 = configTemplate2.replace('%%IMAGECONFIG%%' , property.value);
-
-            }
-          }
-        }
-      }
-    });
-} catch (error) {
-
-  logger.info('Get error');
-
-  logger.error(error);  
-} */
-
 };
 
 /**
@@ -238,22 +170,7 @@ exports.ui = (req, res) => {
         name: 'Select Vendor',
         value: 'Select Vendor',
       },
-/*      {
-        name: 'Edipost',
-        value: 'Edipost',
-      },
-      {
-        name: 'ONG Conseil',
-        value: 'ONG Conseil',
-      },
-      {
-        name: 'Call to Action',
-        value: 'Call to Action',
-      },
-      {
-        name: 'Voxens',
-        value: 'Voxens',
-      },*/
+
     ],
     dropdownCommunications: [
       {

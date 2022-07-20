@@ -76,18 +76,6 @@ exports.execute = async (req, res) => {
       })
       .then(function (response) {
         logger.info(response);
-
-  /*      await SFClient.saveData(process.env.LOGGING_DATA_EXTENSION, [
-          {
-            keys: {
-              UniqueId: uid,
-            },
-            values: {
-              Contact: data.inArguments[0].contactIdentifier,
-              Message: ' - Updated from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
-            },
-          },
-        ]); */
     
       })
       .catch(function (error) {
@@ -138,98 +126,11 @@ exports.execute = async (req, res) => {
       });
     }
 
- /*     SFClient.insertDataSync((err, res) => {
-        if (err) {
-  
-          logger.info('Get err');
-  
-          logger.error(err.message);
-  
-          reject(err);
-        } else {
-    
-          logger.info('Get result');
-
-        }
-      });
-    }*/
-
-/*      await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, 
-        [
-        {
-          keys: {
-            UniqueId: uid,
-          },
-          values: {
-            Contact: data.inArguments[0].contactIdentifier,
-            Message: 'FTP Request from JB.' + 'Vendor: ' + data.inArguments[4].DropdownOptions + ', Communication: ' + data.inArguments[5].DropdownCommunications + ', Method: ' + method,
-          },
-        },
-      ]);*/
-  
-    
-
-    /*
-    var apiUrl = process.env.API_URL;
-    var apiUsername = process.env.API_USERNAME;
-    var apiPassword = process.env.API_PASSWORD;
-
-    var conn = new jsforce.Connection({
-      // you can change loginUrl to connect to sandbox or prerelease env.
-    loginUrl : apiUrl
-    });
-
-    conn.login(apiUsername, apiPassword, function(err, res) {
-      if (err) { return console.error(err); }
-
-      conn.query("SELECT Id FROM Contact where Email ='" + id + "'", function(err, result) {
-        if (err) { return console.error(err); }
-        console.log("total : " + result.totalSize);
-        console.log("fetched : " + result.records.length);
-        console.log("done ? : " + result.done);
-
-        console.log("fetched : " + JSON.stringify(result.records));
-
-        var newId = result.records[0].Id;
-
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        var hh = today.getHours();
-        var mins = today.getMinutes();
-        var ss = today.getSeconds();
-
-        today = mm + '/' + dd + '/' + yyyy + ' ' + hh + ':' + mins + ':' + ss;
-        
-        // Single record update
-        conn.sobject("Contact").update({ 
-          Id : newId,
-          Description : today + ' - Updated from JB.' + 'Vendor: ' + data.inArguments[0].DropdownOptions + ', Communication: ' + data.inArguments[0].DropdownCommunications + ', Method: ' + method
-        }, function(err, ret) {
-          if (err || !ret.success) { return console.error(err, ret); }
-          console.log('Updated Successfully : ' + ret.id);
-          // ...
-        });
-
-      });
-
-    }); */
+ 
 
   } catch (error) {
 
-/*    await SFClient.insertData(process.env.LOGGING_DATA_EXTENSION, [
-      {
-        keys: {
-          UniqueId: uid,
-        },
-        values: {
-          Contact: data.inArguments[0].contactIdentifier,
-          Message: error,
-        },
-      },
-    ]);
-*/
+
     logger.error(error);
   }
 
