@@ -94,7 +94,7 @@ const saveData = async (externalKey, data) => client.post({
 
 const deRow = etclient.dataExtensionRow({
   Name: process.env.CONFIG_DE,
-  props: ['Vendor', 'Communications', 'PreviewURL' ]
+  props: ['Type', 'Vendor', 'Communication', 'PreviewURL']
   // to return all rows, delete the filter property
 });
 
