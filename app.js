@@ -10,6 +10,8 @@ const routes = require('./routes/index');
 const activityRouter = require('./routes/activity');
 
 const app = express();
+
+// Set up csp using Helmet to allow images from the Terre Solidaire Marketing Cloud
 app.use(
   helmet({
     contentSecurityPolicy: {

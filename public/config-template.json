@@ -16,9 +16,16 @@
           "contactIdentifier": "{{Contact.Key}}"
         },
         {
-          "emailAddress": "{{Contact.Attribute.Contact_DE_LC.Email}}"
+          "Email": "{{Event.TEST_EntryJourney.Email}}"
         },
-        %%COMMSCONFIG%%,
+        {
+          "OpportunityID": "{{Event.TEST_EntryJourney.OpportunityID}}"
+        },
+        {
+          "CampaignID": "{{Event.TEST_EntryJourney.CampaignID}}"
+        },
+        %%TYPECOMMSCONFIG%%,
+        %%TYPECONFIG%%,
         %%IMAGECONFIG%%
       ],
       "outArguments": [

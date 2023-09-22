@@ -35,80 +35,87 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
 
   logger.info('execute');
-//  logger.info(JSON.stringify(data));
 
   const uid = Uuidv1();
 
   try {
-    let method;
 
     logger.info('data.inArguments - ' + JSON.stringify(data.inArguments));
-//    logger.info('data.inArguments[0] - ' + JSON.stringify(data.inArguments[0]));
-
-//    logger.info('contactIdentifier - <' + data.inArguments[0].contactIdentifier + '>');
-//    logger.info('DropdownOptions - <' + data.inArguments[4].DropdownOptions + '>');
-//    logger.info('DropdownCommunications - <' + data.inArguments[5].DropdownCommunications + '>');
-//    logger.info('APIMethod - <' + data.inArguments[6].APIMethod + '>');
-//    logger.info('FTPMethod - <' + data.inArguments[7].FTPMethod + '>');
-      logger.info('TCode - <' + data.inArguments[8].TCode + '>');
-      logger.info('Other - <' + data.inArguments[9].Other + '>');
-
-//    logger.info('method equal ' + (data.inArguments[6].APIMethod == 'on'));
-
-
-    if (data.inArguments[6].APIMethod == 'on') {
-      method = 'API';
-    } else {
-      method = 'FTP';
-    }
-
+ 
     var id = data.inArguments[0].contactIdentifier;
+    var typeVal;
+    var vendorVal;
+    var commsVal;
+    var tcVal;
+    var oVal;
+    var oppId;
+    var campaignId;
 
-    logger.info('method - ' + method);
+    for (var i = 0, l = data.inArguments.length; i < l; i++) {
+      var obj = data.inArguments[i];
 
-    if (method == 'API') {
+      var key = Object.keys(obj)[0];
+      var value = obj[key];
 
-      axios.post(process.env.API_URL, {
-        contactEmail: id,
-        vendor: data.inArguments[4].DropdownOptions,
-        communication :data.inArguments[5].DropdownCommunications
-  
-      })
-      .then(function (response) {
-        logger.info(response);
-    
-      })
-      .catch(function (error) {
-        logger.error(error);
-      });
-  
+      if (key == 'TCode') {
+        tcVal = value;
+      }
+      else if (key == 'Other') {
+        oVal = value;
+      }
+      else if (key == 'DropdownCommunications') {
+        commsVal = value;
+      }
+      else if (key == 'DropdownOptions') {
+        vendorVal = value;
+      }
+      else if (key == 'TypeOptions') {
+        typeVal = value;
+      }
+      else if (key == 'CampaignID') {
+        campaignId = value;
+      }
+      else if (key == 'OpportunityID') {
+        oppId = value;
+      }
+
+      logger.info('index - ' + i);
+      logger.info('entry - ' + JSON.stringify(obj));
+      
+      // ...
     }
-    else {
 
-      logger.info('Insert into log');
+    logger.info('Insert into log');
 
-      let pData = {
-        uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        json: true,
-        body: [
-          {
-            keys: {
-              DirectMailId: uid,
-            },
-            values: {
-              Id: id,
-              Vendor: data.inArguments[4].DropdownOptions,
-              Communication: data.inArguments[5].DropdownCommunications,
-              TrackingCode: data.inArguments[8].TCode,
-              OtherInformation: data.inArguments[9].Other,
-            },
+    var todayDt = new Date();
+
+    let pData = {
+      uri: `/hub/v1/dataevents/key:${process.env.LOGGING_DATA_EXTENSION}/rowset`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      json: true,
+      body: [
+        {
+          keys: {
+            OfflineActivityId: uid,
           },
-        ] };
+          values: {
+            Id: id,
+            Type: typeVal,
+            Vendor: vendorVal,
+            Communication: commsVal,
+            TrackingCode: tcVal,
+            OtherInformation: oVal,
+            Status: 'Added',         
+            AddedDate: todayDt,          
+            OpportunityID: oppId,         
+            CampaignID: campaignId,         
+           },
+        },
+      ] };
 
-        logger.info('pDatata - ' + JSON.stringify(pData));
+      logger.info('pDatata - ' + JSON.stringify(pData));
 
       client.post( pData, (err, res) => {
         if (err) {
@@ -124,7 +131,7 @@ exports.execute = async (req, res) => {
 
         }
       });
-    }
+    
 
  
 
